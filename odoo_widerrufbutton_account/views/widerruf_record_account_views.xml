@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_widerruf_record_form_account" model="ir.ui.view">
+        <field name="name">widerruf.record.form.account</field>
+        <field name="model">widerruf.record</field>
+        <field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_form_19"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='website_id']" position="after">
+                <field name="invoice_reference_found" readonly="1"/>
+                <field name="invoice_id" readonly="1"/>
+                <field name="invoice_email_matches" readonly="1"/>
+                <field name="invoice_email_mismatch_warning" readonly="1"/>
+                <button name="action_try_link_invoice" type="object" string="Rechnung suchen" class="btn-secondary"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_widerruf_record_list_account" model="ir.ui.view">
+        <field name="name">widerruf.record.list.account</field>
+        <field name="model">widerruf.record</field>
+        <field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_list_19"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_reference']" position="after">
+                <field name="invoice_reference_found"/>
+                <field name="invoice_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

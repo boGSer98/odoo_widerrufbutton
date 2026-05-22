@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_widerruf" inherit_id="portal.portal_my_home" name="Widerrufe im Kundenkonto">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Widerrufe</t>
+                <t t-set="url" t-value="'/my/widerrufe'"/>
+                <t t-set="placeholder_count" t-value="'widerruf_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_widerrufe" name="Meine Widerrufe">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar"><t t-set="title">Meine Widerrufe</t></t>
+            <div class="o_widerruf_portal_page">
+                <t t-if="not widerrufe"><div class="alert alert-info" role="status">Es sind aktuell keine Widerrufe in Ihrem Kundenkonto vorhanden.</div><a href="/widerruf" class="btn btn-primary">Vertrag widerrufen</a></t>
+                <t t-if="widerrufe">
+                    <div class="table-responsive"><table class="table table-hover o_portal_my_doc_table">
+                        <thead><tr><th>Vorgang</th><th>Datum</th><th>Bestell-/Rechnungsnummer</th><th>Art</th><th>Anhänge</th><th>Status</th></tr></thead>
+                        <tbody><tr t-foreach="widerrufe" t-as="widerruf">
+                            <td><a t-att-href="'/my/widerrufe/%s' % widerruf.id"><t t-out="widerruf.name"/></a></td>
+                            <td><span t-field="widerruf.create_date" t-options="{'widget': 'date'}"/></td>
+                            <td><t t-out="widerruf.order_reference"/></td>
+                            <td><t t-out="dict(widerruf._fields['withdrawal_type'].selection).get(widerruf.withdrawal_type)"/></td>
+                            <td><t t-out="widerruf.attachment_count"/></td>
+                            <td><span class="badge rounded-pill text-bg-secondary"><t t-out="dict(widerruf._fields['state'].selection).get(widerruf.state)"/></span></td>
+                        </tr></tbody>
+                    </table></div>
+                    <a href="/widerruf" class="btn btn-primary mt-3">Weiteren Vertrag widerrufen</a>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_my_widerruf_detail" name="Widerruf Details">
+        <t t-call="portal.portal_layout">
+            <div class="o_widerruf_portal_detail">
+                <div class="d-flex justify-content-between align-items-center mb-4"><h1 class="h3 mb-0">Widerruf <t t-out="widerruf.name"/></h1><a href="/my/widerrufe" class="btn btn-secondary">Zurück zur Übersicht</a></div>
+                <div class="card shadow-sm"><div class="card-body"><dl class="row mb-0">
+                    <dt class="col-md-4">Vorgangsnummer</dt><dd class="col-md-8"><t t-out="widerruf.name"/></dd>
+                    <dt class="col-md-4">Eingereicht am</dt><dd class="col-md-8"><span t-field="widerruf.create_date"/></dd>
+                    <dt class="col-md-4">Status</dt><dd class="col-md-8"><t t-out="dict(widerruf._fields['state'].selection).get(widerruf.state)"/></dd>
+                    <dt class="col-md-4">Name</dt><dd class="col-md-8"><t t-out="widerruf.customer_name"/></dd>
+                    <dt class="col-md-4">E-Mail</dt><dd class="col-md-8"><t t-out="widerruf.customer_email"/></dd>
+                    <dt class="col-md-4">Bestell- oder Rechnungsnummer</dt><dd class="col-md-8"><t t-out="widerruf.order_reference"/></dd>
+                    <dt class="col-md-4">Art des Widerrufs</dt><dd class="col-md-8"><t t-out="dict(widerruf._fields['withdrawal_type'].selection).get(widerruf.withdrawal_type)"/></dd>
+                    <dt class="col-md-4">Mitteilung</dt><dd class="col-md-8"><t t-out="widerruf.message or '-'"/></dd>
+                    <dt class="col-md-4">Anhänge</dt><dd class="col-md-8"><t t-if="widerruf.attachment_ids"><ul class="list-unstyled mb-0"><li t-foreach="widerruf.attachment_ids" t-as="attachment"><a t-att-href="'/my/widerrufe/%s/attachment/%s' % (widerruf.id, attachment.id)"><t t-out="attachment.name"/></a></li></ul></t><t t-else="">-</t></dd>
+                    <dt class="col-md-4">E-Mail-Bestätigung</dt><dd class="col-md-8"><t t-if="widerruf.confirmation_mail_sent">versendet am <span t-field="widerruf.confirmation_mail_sent_at"/></t><t t-else="">noch nicht als versendet markiert</t></dd>
+                </dl></div></div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

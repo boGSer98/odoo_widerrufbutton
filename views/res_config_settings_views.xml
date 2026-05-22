@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_widerruf" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.widerruf</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Widerrufbutton" string="Widerrufbutton" name="odoo_widerrufbutton">
+                    <block title="Website und Formular" name="widerruf_website_form">
+                        <setting string="Footer-Button anzeigen" help="Blendet den Button Vertrag widerrufen im Website-Footer ein oder aus.">
+                            <field name="widerruf_footer_button_enabled"/>
+                        </setting>
+                        <setting string="Einleitungstext" help="Text oberhalb des Widerrufsformulars.">
+                            <field name="widerruf_customer_intro_text" placeholder="Einleitungstext für Kunden"/>
+                        </setting>
+                        <setting string="Dateiupload aktivieren" help="Erlaubt Kunden, dem Widerruf einen optionalen Anhang beizufügen.">
+                            <field name="widerruf_upload_enabled"/>
+                        </setting>
+                        <setting string="Erlaubte Dateiendungen" help="Kommagetrennte Liste erlaubter Dateiendungen ohne Punkt.">
+                            <field name="widerruf_allowed_file_extensions" placeholder="pdf,jpg,jpeg,png"/>
+                        </setting>
+                        <setting string="Maximale Dateigröße" help="Maximale Größe eines Anhangs in MB.">
+                            <field name="widerruf_max_upload_size_mb"/>
+                        </setting>
+                    </block>
+                    <block title="Kundenportal" name="widerruf_portal">
+                        <setting string="Portalansicht anzeigen" help="Zeigt eingereichte Widerrufe im Kundenportal an, sofern sie mit dem Kundenkonto verknüpft sind.">
+                            <field name="widerruf_show_portal"/>
+                        </setting>
+                    </block>
+                    <block title="Benachrichtigungen und Aktivitäten" name="widerruf_notifications">
+                        <setting string="Interne E-Mail senden" help="Sendet bei einem neuen Widerruf eine interne Benachrichtigung per E-Mail.">
+                            <field name="widerruf_send_internal_mail"/>
+                        </setting>
+                        <setting string="Interne Benachrichtigungsadresse" help="Empfängeradresse für interne Widerrufsbenachrichtigungen.">
+                            <field name="widerruf_internal_notify_email" placeholder="widerruf@example.com"/>
+                        </setting>
+                        <setting string="Aktivität erstellen" help="Erstellt bei jedem neuen Widerruf automatisch eine To-do-Aktivität.">
+                            <field name="widerruf_create_activity"/>
+                        </setting>
+                        <setting string="Zuständiger Benutzer" help="Benutzer, dem die automatische Aktivität zugewiesen wird.">
+                            <field name="widerruf_activity_user_id"/>
+                        </setting>
+                        <setting string="Fälligkeit der Aktivität" help="Anzahl der Tage bis zur Fälligkeit der automatisch erstellten Aktivität.">
+                            <field name="widerruf_activity_deadline_days"/>
+                        </setting>
+                        <setting string="Statusänderungen an Kunden senden" help="Sendet bei Statusänderungen automatisch eine E-Mail an den Kunden.">
+                            <field name="widerruf_send_customer_status_mail"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

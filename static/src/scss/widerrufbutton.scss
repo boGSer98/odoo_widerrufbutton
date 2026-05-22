@@ -1,0 +1,31 @@
+/*
+ * Widerrufbutton frontend styles
+ *
+ * Dieses Stylesheet ergänzt nur Layout und Abstände.
+ * Farben, Hover-Zustände, Fokus-Zustände und Button-Designs werden bewusst
+ * nicht überschrieben, damit Odoo/Bootstrap und das aktive Website-Theme
+ * das einheitliche Erscheinungsbild steuern.
+ */
+
+.o_widerruf_footer_wrapper {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--bs-border-color, var(--o-border-color, currentColor));
+}
+
+.o_widerruf_footer_button {
+    white-space: nowrap;
+}
+
+.o_widerruf_page .o_widerruf_info_card {
+    border-radius: var(--bs-border-radius-lg, 0.75rem);
+}
+
+.o_widerruf_honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
