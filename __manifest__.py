@@ -4,7 +4,7 @@
     "name": "Widerrufbutton Website",
     "summary": "Website withdrawal form with portal and backend management.",
     "description": "Website withdrawal form with portal and backend management.",
-    "version": "19.0.6.0.5",
+    "version": "saas~19.4.6.0.7",
     "category": "Website/Website",
     "author": "IT-Service AHD",
     "website": "https://it-service-ahd.de",
@@ -15,7 +15,7 @@
         "portal",
     ],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "data/sequence.xml",
         "data/mail_template.xml",
         "views/res_config_settings_views.xml",
@@ -29,6 +29,6 @@
         ],
     },
     "installable": True,
-    "application": False,
+    "application": True,
     "auto_install": False,
 }

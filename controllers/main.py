@@ -11,7 +11,7 @@ class WebsiteWiderrufController(http.Controller):
     """Public website routes for the electronic withdrawal function."""
 
     def _get_param(self, key, default=False):
-        return request.env["ir.config_parameter"].sudo().get_param(key, default)
+        return request.env["ir.config_parameter"].sudo().get_str(key, default)
 
     def _get_withdrawal_types(self):
         return [

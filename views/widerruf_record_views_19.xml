@@ -67,6 +67,6 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_widerruf_root" name="Widerrufe" sequence="80"/>
+    <menuitem id="menu_widerruf_root" name="Widerrufe" sequence="80" web_icon="odoo_widerrufbutton,static/description/icon.png"/>
     <menuitem id="menu_widerruf_records" name="Widerrufe" parent="menu_widerruf_root" action="action_widerruf_record" sequence="10"/>
 </odoo>

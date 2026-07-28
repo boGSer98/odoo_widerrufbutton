@@ -64,13 +64,13 @@ class WiderrufRecord(models.Model):
         return result
 
     def _get_config_bool(self, key, default=True):
-        value = self.env["ir.config_parameter"].sudo().get_param(key)
+        value = self.env["ir.config_parameter"].sudo().get_str(key)
         if value in (None, False):
             return default
         return value in ("True", "true", "1", True)
 
     def _get_config_int(self, key, default=False):
-        value = self.env["ir.config_parameter"].sudo().get_param(key)
+        value = self.env["ir.config_parameter"].sudo().get_str(key)
         try:
             return int(value) if value else default
         except (TypeError, ValueError):
@@ -96,7 +96,7 @@ class WiderrufRecord(models.Model):
         if not self._get_config_bool("odoo_widerrufbutton.send_internal_mail", default=True):
             return
         template = self.env.ref("odoo_widerrufbutton.mail_template_widerruf_internal_notification", raise_if_not_found=False)
-        notify_email = self.env["ir.config_parameter"].sudo().get_param("odoo_widerrufbutton.internal_notify_email")
+        notify_email = self.env["ir.config_parameter"].sudo().get_str("odoo_widerrufbutton.internal_notify_email")
         for record in self:
             if template and notify_email:
                 template.sudo().with_context(widerruf_internal_notify_email=notify_email).send_mail(record.id, force_send=True)

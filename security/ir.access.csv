@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_widerruf_record_user,widerruf.record.user,widerruf.record,base.group_user,cru,
+access_widerruf_record_manager,widerruf.record.manager,widerruf.record,sales_team.group_sale_manager,crud,

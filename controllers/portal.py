@@ -11,7 +11,7 @@ class WiderrufCustomerPortal(CustomerPortal):
     """Customer portal pages for withdrawal records."""
 
     def _portal_enabled(self):
-        value = request.env["ir.config_parameter"].sudo().get_param("odoo_widerrufbutton.show_portal", "True")
+        value = request.env["ir.config_parameter"].sudo().get_str("odoo_widerrufbutton.show_portal", "True")
         return value in ("True", "true", "1", True)
 
     def _prepare_home_portal_values(self, counters):

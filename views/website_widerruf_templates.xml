@@ -3,7 +3,7 @@
 
     <template id="widerruf_footer_link" inherit_id="website.layout" name="Widerrufbutton im Website-Footer">
         <xpath expr="//footer" position="inside">
-            <t t-if="request.env['ir.config_parameter'].sudo().get_param('odoo_widerrufbutton.footer_button_enabled', 'True') in ('True', 'true', '1')">
+            <t t-if="request.env['ir.config_parameter'].sudo().get_str('odoo_widerrufbutton.footer_button_enabled', 'True') in ('True', 'true', '1')">
                 <div class="o_widerruf_footer_wrapper container py-3">
                     <a href="/widerruf" class="btn btn-outline-primary o_widerruf_footer_button" aria-label="Vertrag widerrufen">
                         Vertrag widerrufen
