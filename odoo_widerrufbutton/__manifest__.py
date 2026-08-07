@@ -4,11 +4,17 @@
     "name": "Widerrufbutton Website",
     "summary": "Website withdrawal form with portal and backend management.",
     "description": "Website withdrawal form with portal and backend management.",
-    "version": "19.0.6.0.5",
+    "version": "19.0.6.0.6",
     "category": "Website/Website",
     "author": "IT-Service AHD",
     "website": "https://it-service-ahd.de",
+    "support": "info@it-service-ahd.de",
     "license": "LGPL-3",
+    "price": 10.00,
+    "currency": "EUR",
+    "images": [
+        "static/description/widerrufbutton_overview.png",
+    ],
     "depends": [
         "website",
         "mail",

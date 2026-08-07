@@ -1,30 +1,30 @@
 # Odoo Widerrufbutton
 
-Odoo-Module fuer einen Widerrufbutton auf einer Odoo-Website.
+Odoo-Module für einen Widerrufbutton auf einer Odoo-Website.
 
-Das Repository enthaelt ein schlankes Basismodul sowie optionale Zusatzmodule fuer Verkauf und Rechnungsstellung.
+Das Repository enthält ein schlankes Basismodul sowie optionale Zusatzmodule für Verkauf und Rechnungsstellung. Die Add-on-Verzeichnisse liegen gemäß Odoo Vendor Guidelines direkt im Repository-Root, damit GitHub-Importe und ZIP-Pakete ohne zusätzliche Verschachtelung funktionieren.
 
 ## Module
 
 ### `odoo_widerrufbutton`
 
-Basismodul fuer Website, Formular, Portal und Backend-Verwaltung.
+Basismodul für Website, Formular, Portal und Backend-Verwaltung.
 
 Funktionen:
 
 - Button **Vertrag widerrufen** im Website-Footer
 - Widerrufsseite unter `/widerruf` und `/vertrag-widerrufen`
 - Formular mit Pflichtfeldern: Name, E-Mail, Bestell- oder Rechnungsnummer
-- Auswahl: vollstaendiger Widerruf, teilweiser Widerruf, sonstige Mitteilung
-- Pruefansicht vor finalem Absenden
+- Auswahl: vollständiger Widerruf, teilweiser Widerruf, sonstige Mitteilung
+- Prüfansicht vor finalem Absenden
 - Speicherung als Widerrufsvorgang im Backend
 - automatische Vorgangsnummer
 - Eingangs-E-Mail an den Kunden
-- interne Aktivitaet und optionale interne Benachrichtigung
+- interne Aktivität und optionale interne Benachrichtigung
 - Anzeige im Kundenportal bei angemeldeten Kunden
 - Konfiguration unter **Einstellungen > Widerrufbutton**
 
-Abhaengigkeiten:
+Abhängigkeiten:
 
 ```python
 "website", "mail", "portal"
@@ -32,17 +32,17 @@ Abhaengigkeiten:
 
 ### `odoo_widerrufbutton_sale`
 
-Optionales Zusatzmodul fuer die Verknuepfung mit Verkaufsauftraegen.
+Optionales Zusatzmodul für die Verknüpfung mit Verkaufsaufträgen.
 
 Funktionen:
 
 - Suche nach `sale.order.name`
 - Suche nach `sale.order.client_order_ref`
-- automatische Verknuepfung des Widerrufs mit dem Auftrag
+- automatische Verknüpfung des Widerrufs mit dem Auftrag
 - E-Mail-Abgleich zwischen Widerruf und Auftrag
-- Smartbutton **Widerrufe** im Verkaufsauftrag, sichtbar nur bei vorhandener Verknuepfung
+- Smartbutton **Widerrufe** im Verkaufsauftrag, sichtbar nur bei vorhandener Verknüpfung
 
-Abhaengigkeiten:
+Abhängigkeiten:
 
 ```python
 "odoo_widerrufbutton", "sale"
@@ -50,21 +50,32 @@ Abhaengigkeiten:
 
 ### `odoo_widerrufbutton_account`
 
-Optionales Zusatzmodul fuer die Verknuepfung mit Rechnungen aus der Odoo-App Invoicing/Rechnungsstellung.
+Optionales Zusatzmodul für die Verknüpfung mit Rechnungen aus der Odoo-App Invoicing/Rechnungsstellung.
 
 Funktionen:
 
 - Suche nach `account.move.name`
 - Suche nach `account.move.payment_reference`
 - Suche nach `account.move.ref`
-- automatische Verknuepfung des Widerrufs mit der Rechnung
+- automatische Verknüpfung des Widerrufs mit der Rechnung
 - E-Mail-Abgleich zwischen Widerruf und Rechnung
 
-Abhaengigkeiten:
+Abhängigkeiten:
 
 ```python
 "odoo_widerrufbutton", "account"
 ```
+
+## Odoo Apps / Vendor-Informationen
+
+- Odoo-Version: `19.0`
+- Verkaufsmodul: `odoo_widerrufbutton`
+- Preis: `10,00 EUR`
+- Lizenz: `LGPL-3`
+- Hersteller/Autor: `IT-Service AHD`
+- Support: `info@it-service-ahd.de`
+- Apps-Store-Beschreibung: `odoo_widerrufbutton/static/description/index.html`
+- Bildmaterial: `odoo_widerrufbutton/static/description/icon.png` und `odoo_widerrufbutton/static/description/widerrufbutton_overview.png`
 
 ## Installation in der Entwicklungsumgebung
 
@@ -84,7 +95,7 @@ source ~/odoo-dev/odoo_venv/bin/activate
 python3 odoo-bin \
   -r odoo \
   -w odoo \
-  --addons-path=addons,/home/odoo/odoo-dev,/home/odoo/odoo-dev/odoo_widerrufbutton \
+  --addons-path=addons,/home/odoo/odoo-dev/odoo_widerrufbutton \
   -d odoo_widerruf_dev \
   -u odoo_widerrufbutton \
   --stop-after-init
@@ -99,6 +110,14 @@ Optionale Zusatzmodule:
 
 Bei Erstinstallation statt `-u` bitte `-i` verwenden.
 
+## Validierung
+
+```bash
+python3 scripts/validate_module.py
+```
+
+Die Validierung prüft Manifest-Metadaten, Beschreibung, Bildverweise, Python/XML-Syntax, GitHub-/Apps-Store-Paketstruktur und offensichtliche Secret-/Token-/private-IP-Muster in paketierten Textdateien.
+
 ## Dokumentation
 
 - `docs/ENTWICKLERDOKUMENTATION.md`
@@ -106,7 +125,7 @@ Bei Erstinstallation statt `-u` bitte `-i` verwenden.
 
 ## Hinweis
 
-Das Modul ist eine technische Umsetzungshilfe und ersetzt keine Rechtsberatung. Texte, Button-Beschriftungen und Prozesslogik muessen vor produktivem Einsatz rechtlich geprueft werden.
+Das Modul ist eine technische Umsetzungshilfe und ersetzt keine Rechtsberatung. Texte, Button-Beschriftungen und Prozesslogik müssen vor produktivem Einsatz rechtlich geprüft werden.
 
 ## Autor
 
