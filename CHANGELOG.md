@@ -2,6 +2,16 @@
 
 Alle relevanten Änderungen am Modul `odoo_widerrufbutton` werden in dieser Datei dokumentiert.
 
+## 19.0.6.0.6
+
+### Geändert
+
+- Repository-Struktur gemäß Odoo Vendor Guidelines auf Root-Add-on-Verzeichnisse vorbereitet.
+- Apps-Store-Metadaten ergänzt: Support-Adresse, Preis `10,00 EUR`, Währung und Bildverweis.
+- Englische Apps-Store-Beschreibung unter `static/description/index.html` ergänzt.
+- Validierungsskript für Manifest-, Beschreibung-, Paketstruktur-, XML-/Python- und Secret-Hygiene ergänzt.
+- Versehentlich versionierte Python-Bytecode-Dateien entfernt und `.gitignore` ergänzt.
+
 ## 19.0.6.0.0
 
 ### Hinzugefügt
