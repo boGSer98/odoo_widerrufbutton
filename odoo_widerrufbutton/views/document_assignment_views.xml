@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <record id="document_assignment_form" model="ir.ui.view"><field name="name">widerruf.document.assignment.form</field><field name="model">widerruf.document.assignment</field><field name="arch" type="xml">
+  <form string="Assign document"><group><field name="widerruf_id"/><field name="company_id" invisible="1"/><field name="document_type"/></group>
+   <p>Only existing documents in the same company can be assigned. No cancellation or refund is triggered.</p>
+   <footer><button name="action_assign" type="object" string="Assign" class="btn-primary"/><button string="Cancel" special="cancel"/></footer>
+  </form></field></record>
+ <record id="withdrawal_document_workflow_form" model="ir.ui.view"><field name="name">widerruf.document.workflow.form</field><field name="model">widerruf.record</field><field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_form_19"/><field name="arch" type="xml">
+  <xpath expr="//header" position="inside">
+   <field name="document_assignment_available" invisible="1"/>
+   <button name="action_find_documents" type="object" string="Check documents" invisible="not document_assignment_available"/>
+   <button name="action_assign_document" type="object" string="Assign document" invisible="not document_assignment_available"/>
+   <button name="action_clear_document_assignment" type="object" string="Remove assignment" invisible="not document_assignment_available or not documents_manually_assigned" confirm="Remove the document links? The documents themselves remain unchanged."/>
+  </xpath>
+  <xpath expr="//sheet" position="inside"><group string="Document assignment"><field name="documents_manually_assigned"/><p>Without an exact match, use Assign document to select an existing offer, order or invoice. Manual assignments are preserved during automatic searches.</p></group></xpath>
+  <xpath expr="//sheet/div[hasclass('oe_title')]" position="before"><div name="withdrawal_document_buttons" class="oe_button_box"/></xpath>
+ </field></record>
+</odoo>

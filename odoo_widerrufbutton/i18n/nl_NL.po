@@ -117,6 +117,7 @@ msgstr "Toegestane bestandsextensies zonder punt, gescheiden door komma's."
 
 #. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__company_id
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__company_id
 msgid "Company"
 msgstr "Bedrijf"
 
@@ -726,6 +727,7 @@ msgstr "Overeenkomst herroepen"
 #: model:ir.model,name:odoo_widerrufbutton.model_widerruf_record
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__widerruf_id
 msgid "Withdrawal"
 msgstr "Herroeping"
 
@@ -817,3 +819,107 @@ msgstr "Bijlagen mogen samen maximaal 10 MB groot zijn."
 #: code:addons/odoo_widerrufbutton/controllers/main.py:0
 msgid "Attachment upload limit reached. Please try without files or try again later."
 msgstr "De uploadlimiet voor bijlagen is bereikt. Probeer het zonder bestanden of later opnieuw."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid "Assign"
+msgstr "Toewijzen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model,name:odoo_widerrufbutton.model_widerruf_document_assignment
+msgid "Assign a withdrawal to a document"
+msgstr "Herroeping aan een document toewijzen"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Assign document"
+msgstr "Document toewijzen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Check documents"
+msgstr "Documenten controleren"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__document_assignment_available
+msgid "Document Assignment Available"
+msgstr "Documenttoewijzing beschikbaar"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Document assignment"
+msgstr "Documenttoewijzing"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "Document assignment origin cannot be edited directly."
+msgstr "De oorsprong van de documenttoewijzing mag niet rechtstreeks worden gewijzigd."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "Document assignment was selected manually. No document was cancelled or refunded."
+msgstr "De documenttoewijzing is handmatig ingesteld. Er is geen document geannuleerd en geen terugbetaling gestart."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__document_type
+msgid "Document type"
+msgstr "Documenttype"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__documents_manually_assigned
+msgid "Manual document assignment"
+msgstr "Handmatige documenttoewijzing"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "No document integration is available with your access rights."
+msgstr "Met uw toegangsrechten is geen documentintegratie beschikbaar."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "No linked document is available with your access rights."
+msgstr "Met uw toegangsrechten is geen gekoppeld document beschikbaar."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid "Only existing documents in the same company can be assigned. No cancellation or refund is triggered."
+msgstr "Alleen bestaande documenten van hetzelfde bedrijf kunnen worden toegewezen. Er wordt geen annulering of terugbetaling gestart."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Remove assignment"
+msgstr "Toewijzing verwijderen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Remove the document links? The documents themselves remain unchanged."
+msgstr "Documentkoppelingen verwijderen? De documenten zelf blijven ongewijzigd."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "Select an offer, order or customer invoice."
+msgstr "Selecteer een offerte, order of klantfactuur."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "The document must belong to the same company as the withdrawal."
+msgstr "Het document moet bij hetzelfde bedrijf horen als de herroeping."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Without an exact match, use Assign document to select an existing offer, order or invoice. Manual assignments are preserved during automatic searches."
+msgstr "Zonder eenduidige overeenkomst kunt u via ‘Document toewijzen’ een bestaande offerte, order of factuur selecteren. Handmatige toewijzingen blijven bij automatische zoekopdrachten behouden."

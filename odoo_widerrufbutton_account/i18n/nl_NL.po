@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+msgid ""
+msgstr ""
+"Language: nl_NL\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+msgid "An exact same-company document match was linked automatically."
+msgstr "Een eenduidige documentovereenkomst binnen hetzelfde bedrijf is automatisch gekoppeld."
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model,name:odoo_widerrufbutton_account.model_widerruf_document_assignment
+msgid "Assign a withdrawal to a document"
+msgstr "Herroeping aan een document toewijzen"
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_document_assignment__invoice_id
+msgid "Customer invoice / credit note"
+msgstr "Klantfactuur / creditnota"
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_reference_found
+msgid "Customer invoice / credit note available"
+msgstr "Klantfactuur / creditnota beschikbaar"
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_email_matches
+msgid "Document email matches"
+msgstr "E-mail komt overeen met het document"
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_email_mismatch_warning
+msgid "Document email warning"
+msgstr "E-mailwaarschuwing bij het document"
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_document_count
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__related_invoice_ids
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton_account.view_widerruf_record_form_account
+msgid "Invoices / credit notes"
+msgstr "Facturen / creditnota's"
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_id
+msgid "Linked customer invoice / credit note"
+msgstr "Gekoppelde klantfactuur / creditnota"
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+msgid "Only customer invoices or credit notes can be assigned."
+msgstr "Alleen klantfacturen of creditnota's kunnen worden toegewezen."
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+msgid "Please select a document."
+msgstr "Selecteer een document."
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+msgid "The submitted email differs from the linked document. Please review the assignment."
+msgstr "Het opgegeven e-mailadres wijkt af van het gekoppelde document. Controleer de toewijzing."
+#. module: odoo_widerrufbutton_account
+#: model:ir.model,name:odoo_widerrufbutton_account.model_widerruf_record
+msgid "Withdrawal"
+msgstr "Herroeping"
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/account_move.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_bank_statement_line__widerruf_count
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_bank_statement_line__widerruf_ids
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_move__widerruf_count
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_move__widerruf_ids
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton_account.invoice_withdrawal_smartbutton
+msgid "Withdrawals"
+msgstr "Herroepingen"

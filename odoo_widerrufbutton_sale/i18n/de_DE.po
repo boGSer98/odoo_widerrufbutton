@@ -1,0 +1,81 @@
+# Translation of Odoo Server.
+msgid ""
+msgstr ""
+"Language: de_DE\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. module: odoo_widerrufbutton_sale
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_sale/models/widerruf_record.py:0
+msgid "An exact same-company document match was linked automatically."
+msgstr "Ein eindeutiger Dokumenttreffer desselben Unternehmens wurde automatisch verknüpft."
+
+#. module: odoo_widerrufbutton_sale
+#: model:ir.model,name:odoo_widerrufbutton_sale.model_widerruf_document_assignment
+msgid "Assign a withdrawal to a document"
+msgstr "Widerruf einem Dokument zuordnen"
+
+#. module: odoo_widerrufbutton_sale
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_widerruf_record__sale_email_matches
+msgid "Document email matches"
+msgstr "E-Mail stimmt mit Dokument überein"
+
+#. module: odoo_widerrufbutton_sale
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_widerruf_record__sale_email_mismatch_warning
+msgid "Document email warning"
+msgstr "E-Mail-Hinweis zum Dokument"
+
+#. module: odoo_widerrufbutton_sale
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_widerruf_record__sale_order_id
+msgid "Linked offer / order"
+msgstr "Verknüpftes Angebot / Auftrag"
+
+#. module: odoo_widerrufbutton_sale
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_sale/models/widerruf_record.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_widerruf_document_assignment__sale_order_id
+msgid "Offer / order"
+msgstr "Angebot / Auftrag"
+
+#. module: odoo_widerrufbutton_sale
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_widerruf_record__sale_reference_found
+msgid "Offer / order available"
+msgstr "Angebot / Auftrag verfügbar"
+
+#. module: odoo_widerrufbutton_sale
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_sale/models/widerruf_record.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_widerruf_record__related_sale_order_ids
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_widerruf_record__sale_document_count
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton_sale.view_widerruf_record_form_sale
+msgid "Offers / orders"
+msgstr "Angebote / Aufträge"
+
+#. module: odoo_widerrufbutton_sale
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_sale/models/widerruf_record.py:0
+msgid "Please select a document."
+msgstr "Bitte wählen Sie ein Dokument aus."
+
+#. module: odoo_widerrufbutton_sale
+#: model:ir.model,name:odoo_widerrufbutton_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: odoo_widerrufbutton_sale
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_sale/models/widerruf_record.py:0
+msgid "The submitted email differs from the linked document. Please review the assignment."
+msgstr "Die angegebene E-Mail-Adresse weicht vom verknüpften Dokument ab. Bitte prüfen Sie die Zuordnung."
+#. module: odoo_widerrufbutton_sale
+#: model:ir.model,name:odoo_widerrufbutton_sale.model_widerruf_record
+msgid "Withdrawal"
+msgstr "Widerruf"
+
+#. module: odoo_widerrufbutton_sale
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_sale/models/sale_order.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_sale_order__widerruf_count
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_sale.field_sale_order__widerruf_ids
+msgid "Withdrawals"
+msgstr "Widerrufe"

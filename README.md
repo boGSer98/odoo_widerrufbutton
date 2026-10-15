@@ -4,6 +4,12 @@ Odoo-Module für einen Widerrufbutton auf einer Odoo-Website.
 
 Das Repository enthält ein schlankes Basismodul sowie optionale Zusatzmodule für Verkauf und Rechnungsstellung. Die Add-on-Verzeichnisse liegen gemäß Odoo Vendor Guidelines direkt im Repository-Root, damit GitHub-Importe und ZIP-Pakete ohne zusätzliche Verschachtelung funktionieren.
 
+## Dokumentzuordnung 19.0.8.0.0
+
+Neue Widerrufe prüfen vorhandene Angebote/Aufträge sowie Rechnungen/Gutschriften über die optionalen Integrationen. Smartbuttons erschließen die nativen Belegketten. Ohne eindeutigen Treffer ist eine manuelle Auswahl vorhandener Dokumente möglich; manuelle Zuordnungen bleiben erhalten. Kein neues Ticket-/Vorgangsmodell und keine automatische finanzielle Aktion.
+
+[Bedienung, Rechte und Tests](docs/document-assignment-19.0.8.md).
+
 ## Sicherheitsstand 19.0.7.0.0
 
 Die Sicherheitskorrekturen umfassen Fachrollen und Unternehmenstrennung, Odoo-19-Mailvorlagen mit echter Warteschlange, unveränderte Eingangssnapshots, einmalige sitzungsgebundene Bestätigung, sichere optionale Anhänge sowie DE/EN/NL.

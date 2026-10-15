@@ -4,3 +4,5 @@ from . import res_config_settings
 from . import widerruf_record
 
 from . import submission
+
+from . import document_assignment
