@@ -1,97 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <template id="widerruf_footer_link" inherit_id="website.layout" name="Widerrufbutton im Website-Footer">
-        <xpath expr="//footer" position="inside">
-            <t t-if="request.env['ir.config_parameter'].sudo().get_param('odoo_widerrufbutton.footer_button_enabled', 'True') in ('True', 'true', '1')">
-                <div class="o_widerruf_footer_wrapper container py-3">
-                    <a href="/widerruf" class="btn btn-outline-primary o_widerruf_footer_button" aria-label="Vertrag widerrufen">
-                        Vertrag widerrufen
-                    </a>
-                </div>
-            </t>
-        </xpath>
-    </template>
-
-    <template id="widerruf_page" name="Vertrag widerrufen">
-        <t t-call="website.layout">
-            <div id="wrap" class="o_widerruf_page">
-                <section class="s_title pt64 pb32">
-                    <div class="container">
-                        <h1>Vertrag widerrufen</h1>
-                        <p class="lead"><t t-out="intro_text"/></p>
-                    </div>
-                </section>
-                <section class="pt32 pb64">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="card shadow-sm o_widerruf_info_card">
-                                    <div class="card-body p-4 p-md-5">
-                                        <form action="/widerruf/pruefen" method="post" class="o_widerruf_form">
-                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                                            <div class="o_widerruf_honeypot"><input type="text" name="website_url" tabindex="-1" autocomplete="off"/></div>
-                                            <div class="mb-3">
-                                                <label for="customer_name" class="form-label">Name *</label>
-                                                <input type="text" id="customer_name" name="customer_name" class="form-control" required="required" t-att-value="form_values.get('customer_name', '')"/>
-                                                <div class="text-danger small mt-1" t-if="errors.get('customer_name')"><t t-out="errors.get('customer_name')"/></div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="customer_email" class="form-label">E-Mail *</label>
-                                                <input type="email" id="customer_email" name="customer_email" class="form-control" required="required" t-att-value="form_values.get('customer_email', '')"/>
-                                                <div class="text-danger small mt-1" t-if="errors.get('customer_email')"><t t-out="errors.get('customer_email')"/></div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="order_reference" class="form-label">Bestell- oder Rechnungsnummer *</label>
-                                                <input type="text" id="order_reference" name="order_reference" class="form-control" required="required" t-att-value="form_values.get('order_reference', '')"/>
-                                                <div class="text-danger small mt-1" t-if="errors.get('order_reference')"><t t-out="errors.get('order_reference')"/></div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="withdrawal_type" class="form-label">Art des Widerrufs</label>
-                                                <select id="withdrawal_type" name="withdrawal_type" class="form-select">
-                                                    <t t-foreach="withdrawal_types" t-as="withdrawal_type">
-                                                        <option t-att-value="withdrawal_type[0]" t-att-selected="'selected' if form_values.get('withdrawal_type', 'full') == withdrawal_type[0] else None"><t t-out="withdrawal_type[1]"/></option>
-                                                    </t>
-                                                </select>
-                                            </div>
-                                            <div class="mb-4">
-                                                <label for="message" class="form-label">Sonstige Mitteilung</label>
-                                                <textarea id="message" name="message" class="form-control" rows="5"><t t-out="form_values.get('message', '')"/></textarea>
-                                            </div>
-                                            <div class="alert alert-light border">Die mit * markierten Felder sind Pflichtfelder. Nach dem Absenden erhalten Sie zunächst eine Übersicht Ihrer Angaben.</div>
-                                            <button type="submit" class="btn btn-primary">Angaben prüfen</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </t>
-    </template>
-
-    <template id="widerruf_review_page" name="Widerruf prüfen">
-        <t t-call="website.layout">
-            <div id="wrap" class="o_widerruf_page">
-                <section class="s_title pt64 pb32"><div class="container"><h1>Angaben prüfen</h1><p class="lead">Bitte prüfen Sie Ihre Angaben. Erst mit dem nächsten Button wird der Widerruf abgesendet.</p></div></section>
-                <section class="pt32 pb64"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="card shadow-sm o_widerruf_info_card"><div class="card-body p-4 p-md-5">
-                    <dl class="row o_widerruf_review_list">
-                        <dt class="col-sm-4">Name</dt><dd class="col-sm-8"><t t-out="form_values.get('customer_name')"/></dd>
-                        <dt class="col-sm-4">E-Mail</dt><dd class="col-sm-8"><t t-out="form_values.get('customer_email')"/></dd>
-                        <dt class="col-sm-4">Bestell- oder Rechnungsnummer</dt><dd class="col-sm-8"><t t-out="form_values.get('order_reference')"/></dd>
-                        <dt class="col-sm-4">Art des Widerrufs</dt><dd class="col-sm-8"><t t-out="withdrawal_type_label"/></dd>
-                        <dt class="col-sm-4">Mitteilung</dt><dd class="col-sm-8"><t t-out="form_values.get('message') or '-'"/></dd>
-                    </dl>
-                    <form action="/widerruf/bestaetigen" method="post" class="d-inline-block me-2"><input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="payload" t-att-value="payload"/><button type="submit" class="btn btn-primary">Widerruf bestätigen</button></form>
-                    <a href="/widerruf" class="btn btn-secondary">Angaben korrigieren</a>
-                </div></div></div></div></div></section>
-            </div>
-        </t>
-    </template>
-
-    <template id="widerruf_success_page" name="Widerruf eingegangen">
-        <t t-call="website.layout"><div id="wrap" class="o_widerruf_page"><section class="pt64 pb64"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="card shadow-sm o_widerruf_info_card"><div class="card-body p-4 p-md-5 text-center"><h1 class="h3">Ihr Widerruf ist eingegangen</h1><p class="lead mt-3">Ihre Vorgangsnummer lautet: <strong><t t-out="record.name"/></strong></p><p>Wir haben Ihnen eine Eingangsbestätigung an <strong><t t-out="record.customer_email"/></strong> gesendet.</p><a href="/" class="btn btn-primary mt-3">Zurück zur Startseite</a></div></div></div></div></div></section></div></t>
-    </template>
-
+ <template id="widerruf_footer_link" inherit_id="website.layout" name="Withdrawal footer link">
+  <xpath expr="//footer" position="inside"><t t-if="request.env['ir.config_parameter'].sudo().get_param('odoo_widerrufbutton.footer_button_enabled', 'True') in ('True','true','1')">
+   <div class="o_widerruf_footer_wrapper container py-3"><a href="/widerruf" class="btn btn-outline-primary">Withdraw from contract</a></div>
+  </t></xpath>
+ </template>
+ <template id="widerruf_page" name="Withdraw from contract"><t t-call="website.layout"><div id="wrap" class="o_widerruf_page"><section class="container py-5">
+  <h1>Withdraw from contract</h1><p class="lead"><t t-out="intro_text"/></p>
+  <div t-if="errors" class="alert alert-danger" role="alert"><ul><li t-foreach="errors.values()" t-as="error"><t t-out="error"/></li></ul></div>
+  <form action="/widerruf/pruefen" method="post" enctype="multipart/form-data" class="o_widerruf_form">
+   <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="draft" t-att-value="draft"/>
+   <div class="o_widerruf_honeypot" aria-hidden="true"><input type="text" name="website_url" tabindex="-1" autocomplete="off"/></div>
+   <div class="mb-3"><label for="customer_name" class="form-label">Name *</label><input id="customer_name" name="customer_name" class="form-control" required="required" maxlength="200" t-att-value="form_values.get('customer_name','')"/></div>
+   <div class="mb-3"><label for="customer_email" class="form-label">Email *</label><input id="customer_email" name="customer_email" type="email" class="form-control" required="required" maxlength="254" t-att-value="form_values.get('customer_email','')"/></div>
+   <div class="mb-3"><label for="order_reference" class="form-label">Order or invoice reference *</label><input id="order_reference" name="order_reference" class="form-control" required="required" maxlength="128" t-att-value="form_values.get('order_reference','')"/></div>
+   <div class="mb-3"><label for="withdrawal_type" class="form-label">Withdrawal type</label><select id="withdrawal_type" name="withdrawal_type" class="form-select"><t t-foreach="withdrawal_types" t-as="kind"><option t-att-value="kind[0]" t-att-selected="'selected' if form_values.get('withdrawal_type','full')==kind[0] else None"><t t-out="kind[1]"/></option></t></select></div>
+   <div class="mb-3"><label for="message" class="form-label">Message</label><textarea id="message" name="message" class="form-control" rows="5" maxlength="10000"><t t-out="form_values.get('message','')"/></textarea></div>
+   <div class="mb-3" t-if="upload_enabled"><label for="attachments" class="form-label">Optional attachments</label><input id="attachments" name="attachments" type="file" multiple="multiple" accept=".pdf,.jpg,.jpeg,.png" class="form-control"/><p class="form-text">Up to three PDF, JPG or PNG files; the configured size limit applies.</p><p class="form-text">Attachments may not exceed 10 MB in total.</p></div>
+   <ul t-if="existing_files"><li t-foreach="existing_files" t-as="file"><t t-out="file.name"/></li></ul>
+   <p>Fields marked * are required. You can review your declaration before submitting it.</p>
+   <button class="btn btn-primary" type="submit">Review details</button>
+  </form>
+ </section></div></t></template>
+ <template id="widerruf_review_page" name="Review withdrawal"><t t-call="website.layout"><div id="wrap"><section class="container py-5">
+  <h1>Review details</h1><p>Please check your details. Your declaration is submitted only when you press the confirmation button.</p>
+  <dl class="row"><dt class="col-sm-4">Name</dt><dd class="col-sm-8"><t t-out="form_values.get('customer_name')"/></dd>
+   <dt class="col-sm-4">Email</dt><dd class="col-sm-8"><t t-out="form_values.get('customer_email')"/></dd>
+   <dt class="col-sm-4">Order or invoice reference</dt><dd class="col-sm-8"><t t-out="form_values.get('order_reference')"/></dd>
+   <dt class="col-sm-4">Withdrawal type</dt><dd class="col-sm-8"><t t-out="withdrawal_type_label"/></dd>
+   <dt class="col-sm-4">Message</dt><dd class="col-sm-8"><t t-out="form_values.get('message') or '-'"/></dd></dl>
+  <ul t-if="existing_files"><li t-foreach="existing_files" t-as="file"><t t-out="file.name"/></li></ul>
+  <form action="/widerruf/bestaetigen" method="post" class="d-inline-block me-2"><input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="payload" t-att-value="payload"/><button class="btn btn-primary" type="submit">Confirm withdrawal</button></form>
+  <a t-att-href="'/widerruf?draft='+payload" class="btn btn-secondary">Correct details</a>
+ </section></div></t></template>
+ <template id="widerruf_success_page" name="Withdrawal received"><t t-call="website.layout"><div id="wrap"><section class="container py-5">
+  <h1>Your withdrawal has been received</h1><p>Your reference: <strong><t t-out="record.name"/></strong></p>
+  <p t-if="record.confirmation_mail_state == 'sent'">The confirmation email has been sent.</p>
+  <p t-elif="record.confirmation_mail_state == 'outgoing'">Your confirmation email has been queued for delivery.</p>
+  <p t-else="">Your declaration has been recorded. The confirmation email could not be prepared or sent. Please contact us if needed.</p>
+  <a href="/" class="btn btn-primary">Back to homepage</a>
+ </section></div></t></template>
 </odoo>

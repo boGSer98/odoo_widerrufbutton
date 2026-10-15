@@ -4,6 +4,14 @@ Odoo-Module für einen Widerrufbutton auf einer Odoo-Website.
 
 Das Repository enthält ein schlankes Basismodul sowie optionale Zusatzmodule für Verkauf und Rechnungsstellung. Die Add-on-Verzeichnisse liegen gemäß Odoo Vendor Guidelines direkt im Repository-Root, damit GitHub-Importe und ZIP-Pakete ohne zusätzliche Verschachtelung funktionieren.
 
+## Sicherheitsstand 19.0.7.0.0
+
+Die Sicherheitskorrekturen umfassen Fachrollen und Unternehmenstrennung, Odoo-19-Mailvorlagen mit echter Warteschlange, unveränderte Eingangssnapshots, einmalige sitzungsgebundene Bestätigung, sichere optionale Anhänge sowie DE/EN/NL.
+
+**Nach Upgrade:** Bearbeitern die Gruppe **Widerrufsbearbeiter** bzw. **Widerrufsmanager** gezielt zuweisen. SMTP/Absender prüfen. Die Erfolgsseite bestätigt den Eingang, nicht pauschal einen erfolgreichen Mailversand.
+
+[Details, Grenzen, Upgrade und Tests](docs/security-hardening-19.0.7.md).
+
 ## Module
 
 ### `odoo_widerrufbutton`

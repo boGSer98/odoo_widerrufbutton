@@ -4,7 +4,7 @@
     "name": "Widerrufbutton Invoicing",
     "summary": "Optional link between withdrawal requests and Odoo invoices.",
     "description": "Optional extension for odoo_widerrufbutton to link withdrawal requests with account.move.",
-    "version": "19.0.1.0.2",
+    "version": "19.0.7.0.0",
     "category": "Website/Website",
     "author": "IT-Service AHD",
     "website": "https://it-service-ahd.de",

@@ -1,73 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
     <record id="mail_template_widerruf_confirmation" model="mail.template">
-        <field name="name">Widerruf: Eingangsbestätigung</field>
+        <field name="name">Withdrawal: receipt confirmation</field>
         <field name="model_id" ref="model_widerruf_record"/>
-        <field name="subject">Eingangsbestätigung zu Ihrem Widerruf ${object.name}</field>
-        <field name="email_from">${(object.company_id.email if object.company_id.email else user.email_formatted) | safe}</field>
-        <field name="email_to">${object.customer_email}</field>
+        <field name="subject">Receipt confirmation for your withdrawal {{ object.name }}</field>
+        <field name="email_from">{{ object.company_id.partner_id.email_formatted or user.email_formatted }}</field>
+        <field name="email_to">{{ object.customer_email }}</field>
+        <field name="lang">{{ object.partner_id.lang or ctx.get('lang') or 'de_DE' }}</field>
         <field name="auto_delete" eval="False"/>
-        <field name="body_html" type="html">
-            <div style="font-family: Arial, sans-serif; font-size: 14px; color: #222;">
-                <p>Guten Tag <t t-out="object.customer_name"/>,</p>
-                <p>wir bestätigen den Eingang Ihres Widerrufs. Nachfolgend finden Sie die von Ihnen übermittelten Angaben:</p>
-                <table style="border-collapse: collapse; width: 100%; max-width: 700px;" cellpadding="6">
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold; width: 220px;">Vorgangsnummer</td><td style="border: 1px solid #ddd;"><t t-out="object.name"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Name</td><td style="border: 1px solid #ddd;"><t t-out="object.customer_name"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">E-Mail</td><td style="border: 1px solid #ddd;"><t t-out="object.customer_email"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Bestell- oder Rechnungsnummer</td><td style="border: 1px solid #ddd;"><t t-out="object.order_reference"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Art des Widerrufs</td><td style="border: 1px solid #ddd;"><t t-out="dict(object._fields['withdrawal_type'].selection).get(object.withdrawal_type)"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Mitteilung</td><td style="border: 1px solid #ddd;"><t t-out="object.message or '-'"/></td></tr>
-                </table>
-                <p style="margin-top: 20px;">Diese Nachricht bestätigt den technischen Eingang Ihrer Erklärung. Die weitere Bearbeitung erfolgt im Anschluss durch unser Team.</p>
-                <p>Mit freundlichen Grüßen</p>
-                <p><t t-out="user.company_id.name"/></p>
-            </div>
-        </field>
+        <field name="body_html" type="html"><div>
+            <p>Hello <t t-out="object.customer_name"/>,</p>
+            <p>We confirm receipt of your declaration. Your information is shown below.</p>
+            <table cellpadding="6">
+                <tr><th>Reference</th><td><t t-out="object.name"/></td></tr>
+                <tr><th>Received at</th><td><t t-out="format_datetime(object.received_at or object.create_date)"/></td></tr>
+                <tr><th>Name</th><td><t t-out="object.customer_name"/></td></tr>
+                <tr><th>Email</th><td><t t-out="object.customer_email"/></td></tr>
+                <tr><th>Order or invoice reference</th><td><t t-out="object.order_reference"/></td></tr>
+                <tr><th>Withdrawal type</th><td><t t-out="dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)"/></td></tr>
+                <tr><th>Message</th><td><t t-out="object.message or '-'"/></td></tr>
+                <tr><th>Status</th><td><t t-out="dict(object._fields['state']._description_selection(object.env)).get(object.state)"/></td></tr>
+            </table>
+            <p>This email confirms technical receipt or provides a processing update. It is not a decision on the legal validity of the withdrawal.</p>
+            <p>Kind regards</p><p><t t-out="object.company_id.name"/></p>
+        </div></field>
     </record>
-
     <record id="mail_template_widerruf_internal_notification" model="mail.template">
-        <field name="name">Widerruf: Interne Benachrichtigung</field>
+        <field name="name">Withdrawal: internal notification</field>
         <field name="model_id" ref="model_widerruf_record"/>
-        <field name="subject">Neuer Widerruf ${object.name}</field>
-        <field name="email_from">${(object.company_id.email if object.company_id.email else user.email_formatted) | safe}</field>
-        <field name="email_to">${ctx.get('widerruf_internal_notify_email')}</field>
+        <field name="subject">New withdrawal {{ object.name }}</field>
+        <field name="email_from">{{ object.company_id.partner_id.email_formatted or user.email_formatted }}</field>
+        <field name="email_to">{{ ctx.get('widerruf_internal_notify_email') }}</field>
+        <field name="lang">{{ object.partner_id.lang or ctx.get('lang') or 'de_DE' }}</field>
         <field name="auto_delete" eval="False"/>
-        <field name="body_html" type="html">
-            <div style="font-family: Arial, sans-serif; font-size: 14px; color: #222;">
-                <p>Es wurde ein neuer Widerruf über die Website eingereicht.</p>
-                <table style="border-collapse: collapse; width: 100%; max-width: 700px;" cellpadding="6">
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold; width: 220px;">Vorgangsnummer</td><td style="border: 1px solid #ddd;"><t t-out="object.name"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Name</td><td style="border: 1px solid #ddd;"><t t-out="object.customer_name"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">E-Mail</td><td style="border: 1px solid #ddd;"><t t-out="object.customer_email"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Bestell- oder Rechnungsnummer</td><td style="border: 1px solid #ddd;"><t t-out="object.order_reference"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Status</td><td style="border: 1px solid #ddd;"><t t-out="dict(object._fields['state'].selection).get(object.state)"/></td></tr>
-                </table>
-                <p style="margin-top: 20px;">Bitte öffnen Sie den Vorgang in Odoo und bearbeiten Sie den Widerruf.</p>
-            </div>
-        </field>
+        <field name="body_html" type="html"><div>
+            <p>Hello <t t-out="object.customer_name"/>,</p>
+            <p>A new declaration has been received. Please review the withdrawal in Odoo.</p>
+            <table cellpadding="6">
+                <tr><th>Reference</th><td><t t-out="object.name"/></td></tr>
+                <tr><th>Received at</th><td><t t-out="format_datetime(object.received_at or object.create_date)"/></td></tr>
+                <tr><th>Name</th><td><t t-out="object.customer_name"/></td></tr>
+                <tr><th>Email</th><td><t t-out="object.customer_email"/></td></tr>
+                <tr><th>Order or invoice reference</th><td><t t-out="object.order_reference"/></td></tr>
+                <tr><th>Withdrawal type</th><td><t t-out="dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)"/></td></tr>
+                <tr><th>Message</th><td><t t-out="object.message or '-'"/></td></tr>
+                <tr><th>Status</th><td><t t-out="dict(object._fields['state']._description_selection(object.env)).get(object.state)"/></td></tr>
+            </table>
+            <p>This email confirms technical receipt or provides a processing update. It is not a decision on the legal validity of the withdrawal.</p>
+            <p>Kind regards</p><p><t t-out="object.company_id.name"/></p>
+        </div></field>
     </record>
-
     <record id="mail_template_widerruf_status_update" model="mail.template">
-        <field name="name">Widerruf: Statusänderung an Kunden</field>
+        <field name="name">Withdrawal: customer status update</field>
         <field name="model_id" ref="model_widerruf_record"/>
-        <field name="subject">Statusänderung zu Ihrem Widerruf ${object.name}</field>
-        <field name="email_from">${(object.company_id.email if object.company_id.email else user.email_formatted) | safe}</field>
-        <field name="email_to">${object.customer_email}</field>
+        <field name="subject">Status update for your withdrawal {{ object.name }}</field>
+        <field name="email_from">{{ object.company_id.partner_id.email_formatted or user.email_formatted }}</field>
+        <field name="email_to">{{ object.customer_email }}</field>
+        <field name="lang">{{ object.partner_id.lang or ctx.get('lang') or 'de_DE' }}</field>
         <field name="auto_delete" eval="False"/>
-        <field name="body_html" type="html">
-            <div style="font-family: Arial, sans-serif; font-size: 14px; color: #222;">
-                <p>Guten Tag <t t-out="object.customer_name"/>,</p>
-                <p>der Status Ihres Widerrufs wurde aktualisiert.</p>
-                <table style="border-collapse: collapse; width: 100%; max-width: 700px;" cellpadding="6">
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold; width: 220px;">Vorgangsnummer</td><td style="border: 1px solid #ddd;"><t t-out="object.name"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Bestell- oder Rechnungsnummer</td><td style="border: 1px solid #ddd;"><t t-out="object.order_reference"/></td></tr>
-                    <tr><td style="border: 1px solid #ddd; font-weight: bold;">Aktueller Status</td><td style="border: 1px solid #ddd;"><t t-out="dict(object._fields['state'].selection).get(object.state)"/></td></tr>
-                </table>
-                <p style="margin-top: 20px;">Diese E-Mail informiert Sie über den aktuellen Bearbeitungsstand.</p>
-                <p>Mit freundlichen Grüßen</p>
-                <p><t t-out="user.company_id.name"/></p>
-            </div>
-        </field>
+        <field name="body_html" type="html"><div>
+            <p>Hello <t t-out="object.customer_name"/>,</p>
+            <p>The processing status of your withdrawal has changed.</p>
+            <table cellpadding="6">
+                <tr><th>Reference</th><td><t t-out="object.name"/></td></tr>
+                <tr><th>Received at</th><td><t t-out="format_datetime(object.received_at or object.create_date)"/></td></tr>
+                <tr><th>Name</th><td><t t-out="object.customer_name"/></td></tr>
+                <tr><th>Email</th><td><t t-out="object.customer_email"/></td></tr>
+                <tr><th>Order or invoice reference</th><td><t t-out="object.order_reference"/></td></tr>
+                <tr><th>Withdrawal type</th><td><t t-out="dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)"/></td></tr>
+                <tr><th>Message</th><td><t t-out="object.message or '-'"/></td></tr>
+                <tr><th>Status</th><td><t t-out="dict(object._fields['state']._description_selection(object.env)).get(object.state)"/></td></tr>
+            </table>
+            <p>This email confirms technical receipt or provides a processing update. It is not a decision on the legal validity of the withdrawal.</p>
+            <p>Kind regards</p><p><t t-out="object.company_id.name"/></p>
+        </div></field>
     </record>
 </odoo>

@@ -4,7 +4,7 @@
     "name": "Widerrufbutton Sales",
     "summary": "Optional link between withdrawal requests and Odoo sales orders.",
     "description": "Optional extension for odoo_widerrufbutton to link withdrawal requests with sale.order.",
-    "version": "19.0.1.1.1",
+    "version": "19.0.7.0.0",
     "category": "Website/Website",
     "author": "IT-Service AHD",
     "website": "https://it-service-ahd.de",

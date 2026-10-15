@@ -1,0 +1,819 @@
+# Translation of Odoo Server.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: odoo_widerrufbutton
+#: model:mail.template,body_html:odoo_widerrufbutton.mail_template_widerruf_internal_notification
+msgid "<div>\n            <p>Hello <t t-out=\"object.customer_name\"/>,</p>\n            <p>A new declaration has been received. Please review the withdrawal in Odoo.</p>\n            <table cellpadding=\"6\">\n                <tr><th>Reference</th><td><t t-out=\"object.name\"/></td></tr>\n                <tr><th>Received at</th><td><t t-out=\"format_datetime(object.received_at or object.create_date)\"/></td></tr>\n                <tr><th>Name</th><td><t t-out=\"object.customer_name\"/></td></tr>\n                <tr><th>Email</th><td><t t-out=\"object.customer_email\"/></td></tr>\n                <tr><th>Order or invoice reference</th><td><t t-out=\"object.order_reference\"/></td></tr>\n                <tr><th>Withdrawal type</th><td><t t-out=\"dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)\"/></td></tr>\n                <tr><th>Message</th><td><t t-out=\"object.message or '-'\"/></td></tr>\n                <tr><th>Status</th><td><t t-out=\"dict(object._fields['state']._description_selection(object.env)).get(object.state)\"/></td></tr>\n            </table>\n            <p>This email confirms technical receipt or provides a processing update. It is not a decision on the legal validity of the withdrawal.</p>\n            <p>Kind regards</p><p><t t-out=\"object.company_id.name\"/></p>\n        </div>"
+msgstr "<div>\n            <p>Guten Tag <t t-out=\"object.customer_name\"/>,</p>\n            <p>Eine neue Erklärung ist eingegangen. Bitte prüfen Sie den Widerruf in Odoo.</p>\n            <table cellpadding=\"6\">\n                <tr><th>Vorgangsnummer</th><td><t t-out=\"object.name\"/></td></tr>\n                <tr><th>Eingegangen am</th><td><t t-out=\"format_datetime(object.received_at or object.create_date)\"/></td></tr>\n                <tr><th>Name</th><td><t t-out=\"object.customer_name\"/></td></tr>\n                <tr><th>E-Mail</th><td><t t-out=\"object.customer_email\"/></td></tr>\n                <tr><th>Bestell- oder Rechnungsnummer</th><td><t t-out=\"object.order_reference\"/></td></tr>\n                <tr><th>Art des Widerrufs</th><td><t t-out=\"dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)\"/></td></tr>\n                <tr><th>Mitteilung</th><td><t t-out=\"object.message or '-'\"/></td></tr>\n                <tr><th>Status</th><td><t t-out=\"dict(object._fields['state']._description_selection(object.env)).get(object.state)\"/></td></tr>\n            </table>\n            <p>Diese E-Mail bestätigt den technischen Eingang oder informiert über den Bearbeitungsstand. Sie stellt keine Entscheidung über die rechtliche Wirksamkeit des Widerrufs dar.</p>\n            <p>Mit freundlichen Grüßen</p><p><t t-out=\"object.company_id.name\"/></p>\n        </div>"
+
+#. module: odoo_widerrufbutton
+#: model:mail.template,body_html:odoo_widerrufbutton.mail_template_widerruf_status_update
+msgid "<div>\n            <p>Hello <t t-out=\"object.customer_name\"/>,</p>\n            <p>The processing status of your withdrawal has changed.</p>\n            <table cellpadding=\"6\">\n                <tr><th>Reference</th><td><t t-out=\"object.name\"/></td></tr>\n                <tr><th>Received at</th><td><t t-out=\"format_datetime(object.received_at or object.create_date)\"/></td></tr>\n                <tr><th>Name</th><td><t t-out=\"object.customer_name\"/></td></tr>\n                <tr><th>Email</th><td><t t-out=\"object.customer_email\"/></td></tr>\n                <tr><th>Order or invoice reference</th><td><t t-out=\"object.order_reference\"/></td></tr>\n                <tr><th>Withdrawal type</th><td><t t-out=\"dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)\"/></td></tr>\n                <tr><th>Message</th><td><t t-out=\"object.message or '-'\"/></td></tr>\n                <tr><th>Status</th><td><t t-out=\"dict(object._fields['state']._description_selection(object.env)).get(object.state)\"/></td></tr>\n            </table>\n            <p>This email confirms technical receipt or provides a processing update. It is not a decision on the legal validity of the withdrawal.</p>\n            <p>Kind regards</p><p><t t-out=\"object.company_id.name\"/></p>\n        </div>"
+msgstr "<div>\n            <p>Guten Tag <t t-out=\"object.customer_name\"/>,</p>\n            <p>Der Bearbeitungsstatus Ihres Widerrufs hat sich geändert.</p>\n            <table cellpadding=\"6\">\n                <tr><th>Vorgangsnummer</th><td><t t-out=\"object.name\"/></td></tr>\n                <tr><th>Eingegangen am</th><td><t t-out=\"format_datetime(object.received_at or object.create_date)\"/></td></tr>\n                <tr><th>Name</th><td><t t-out=\"object.customer_name\"/></td></tr>\n                <tr><th>E-Mail</th><td><t t-out=\"object.customer_email\"/></td></tr>\n                <tr><th>Bestell- oder Rechnungsnummer</th><td><t t-out=\"object.order_reference\"/></td></tr>\n                <tr><th>Art des Widerrufs</th><td><t t-out=\"dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)\"/></td></tr>\n                <tr><th>Mitteilung</th><td><t t-out=\"object.message or '-'\"/></td></tr>\n                <tr><th>Status</th><td><t t-out=\"dict(object._fields['state']._description_selection(object.env)).get(object.state)\"/></td></tr>\n            </table>\n            <p>Diese E-Mail bestätigt den technischen Eingang oder informiert über den Bearbeitungsstand. Sie stellt keine Entscheidung über die rechtliche Wirksamkeit des Widerrufs dar.</p>\n            <p>Mit freundlichen Grüßen</p><p><t t-out=\"object.company_id.name\"/></p>\n        </div>"
+
+#. module: odoo_widerrufbutton
+#: model:mail.template,body_html:odoo_widerrufbutton.mail_template_widerruf_confirmation
+msgid "<div>\n            <p>Hello <t t-out=\"object.customer_name\"/>,</p>\n            <p>We confirm receipt of your declaration. Your information is shown below.</p>\n            <table cellpadding=\"6\">\n                <tr><th>Reference</th><td><t t-out=\"object.name\"/></td></tr>\n                <tr><th>Received at</th><td><t t-out=\"format_datetime(object.received_at or object.create_date)\"/></td></tr>\n                <tr><th>Name</th><td><t t-out=\"object.customer_name\"/></td></tr>\n                <tr><th>Email</th><td><t t-out=\"object.customer_email\"/></td></tr>\n                <tr><th>Order or invoice reference</th><td><t t-out=\"object.order_reference\"/></td></tr>\n                <tr><th>Withdrawal type</th><td><t t-out=\"dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)\"/></td></tr>\n                <tr><th>Message</th><td><t t-out=\"object.message or '-'\"/></td></tr>\n                <tr><th>Status</th><td><t t-out=\"dict(object._fields['state']._description_selection(object.env)).get(object.state)\"/></td></tr>\n            </table>\n            <p>This email confirms technical receipt or provides a processing update. It is not a decision on the legal validity of the withdrawal.</p>\n            <p>Kind regards</p><p><t t-out=\"object.company_id.name\"/></p>\n        </div>"
+msgstr "<div>\n            <p>Guten Tag <t t-out=\"object.customer_name\"/>,</p>\n            <p>Wir bestätigen den Eingang Ihrer Erklärung. Nachfolgend finden Sie Ihre Angaben.</p>\n            <table cellpadding=\"6\">\n                <tr><th>Vorgangsnummer</th><td><t t-out=\"object.name\"/></td></tr>\n                <tr><th>Eingegangen am</th><td><t t-out=\"format_datetime(object.received_at or object.create_date)\"/></td></tr>\n                <tr><th>Name</th><td><t t-out=\"object.customer_name\"/></td></tr>\n                <tr><th>E-Mail</th><td><t t-out=\"object.customer_email\"/></td></tr>\n                <tr><th>Bestell- oder Rechnungsnummer</th><td><t t-out=\"object.order_reference\"/></td></tr>\n                <tr><th>Art des Widerrufs</th><td><t t-out=\"dict(object._fields['withdrawal_type']._description_selection(object.env)).get(object.withdrawal_type)\"/></td></tr>\n                <tr><th>Mitteilung</th><td><t t-out=\"object.message or '-'\"/></td></tr>\n                <tr><th>Status</th><td><t t-out=\"dict(object._fields['state']._description_selection(object.env)).get(object.state)\"/></td></tr>\n            </table>\n            <p>Diese E-Mail bestätigt den technischen Eingang oder informiert über den Bearbeitungsstand. Sie stellt keine Entscheidung über die rechtliche Wirksamkeit des Widerrufs dar.</p>\n            <p>Mit freundlichen Grüßen</p><p><t t-out=\"object.company_id.name\"/></p>\n        </div>"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "A maximum of three files is allowed."
+msgstr "Es sind höchstens drei Dateien erlaubt."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Activity deadline"
+msgstr "Aktivitätsfrist"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_activity_deadline_days
+msgid "Activity deadline in days"
+msgstr "Aktivitätsfrist in Tagen"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/res_config_settings.py:0
+msgid "Activity deadline must be between 0 and 365 days."
+msgstr "Die Aktivitätsfrist muss zwischen 0 und 365 Tagen liegen."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Allow optional attachments to the withdrawal."
+msgstr "Erlaubt optionale Anhänge zum Widerruf."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/res_config_settings.py:0
+msgid "Allowed extensions are pdf, jpg, jpeg and png only."
+msgstr "Erlaubt sind nur die Dateiendungen pdf, jpg, jpeg und png."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_allowed_file_extensions
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Allowed file extensions"
+msgstr "Erlaubte Dateiendungen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__message_attachment_count
+msgid "Attachment Count"
+msgstr "Anzahl Anhänge"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__attachment_count
+msgid "Attachment count"
+msgstr "Anzahl Anhänge"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__attachment_ids
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Attachments"
+msgstr "Anhänge"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
+msgid "Attachments must belong to this receipt."
+msgstr "Anhänge müssen zu diesem Eingang gehören."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_success_page
+msgid "Back to homepage"
+msgstr "Zurück zur Startseite"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+msgid "Back to overview"
+msgstr "Zurück zur Übersicht"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Close without action"
+msgstr "Ohne weitere Maßnahme schließen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields.selection,name:odoo_widerrufbutton.selection__widerruf_record__state__cancelled
+msgid "Closed without action"
+msgstr "Ohne weitere Maßnahme geschlossen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,help:odoo_widerrufbutton.field_res_config_settings__widerruf_allowed_file_extensions
+msgid "Comma-separated allowed extensions without a dot, for example pdf,jpg,png."
+msgstr "Erlaubte Dateiendungen ohne Punkt, durch Kommas getrennt, beispielsweise pdf,jpg,png."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Comma-separated allowed file extensions without a dot."
+msgstr "Erlaubte Dateiendungen ohne Punkt, durch Kommas getrennt."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "Complete your details. You can review and explicitly confirm your withdrawal in the next step."
+msgstr "Füllen Sie die folgenden Angaben aus. Im nächsten Schritt können Sie Ihre Eingaben prüfen und den Widerruf ausdrücklich bestätigen."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Confirm withdrawal"
+msgstr "Widerruf bestätigen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__confirmation_mail_state
+msgid "Confirmation delivery status"
+msgstr "Versandstatus der Bestätigung"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__confirmation_mail_id
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+msgid "Confirmation email"
+msgstr "Bestätigungs-E-Mail"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Correct details"
+msgstr "Angaben korrigieren"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Create a to-do activity for each new withdrawal."
+msgstr "Erstellt für jeden neuen Widerruf eine To-do-Aktivität."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Create activity"
+msgstr "Aktivität erstellen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_create_activity
+msgid "Create activity on new withdrawal"
+msgstr "Aktivität bei neuem Widerruf erstellen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Customer details"
+msgstr "Kundendaten"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Customer portal"
+msgstr "Kundenportal"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+msgid "Date"
+msgstr "Datum"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Days until the activity is due."
+msgstr "Tage bis zur Fälligkeit der Aktivität."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields.selection,name:odoo_widerrufbutton.selection__widerruf_record__state__done
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Done"
+msgstr "Erledigt"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__customer_email
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Email *"
+msgstr "E-Mail *"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,help:odoo_widerrufbutton.field_res_config_settings__widerruf_internal_notify_email
+msgid "Email address notified internally about new withdrawals."
+msgstr "E-Mail-Adresse für interne Benachrichtigungen über neue Widerrufe."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
+msgid "Email could not be queued; please review the configuration."
+msgstr "Die E-Mail konnte nicht für den Versand vorgemerkt werden; bitte prüfen Sie die Konfiguration."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_send_customer_status_mail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Email customers on status changes"
+msgstr "Kunden bei Statusänderungen per E-Mail informieren"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__mail_error
+msgid "Email preparation error"
+msgstr "Fehler bei der E-Mail-Vorbereitung"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__confirmation_mail_sent
+msgid "Email sent"
+msgstr "E-Mail versendet"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__confirmation_mail_sent_at
+msgid "Email sent at"
+msgstr "E-Mail versendet am"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Email status"
+msgstr "E-Mail-Status"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_upload_enabled
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Enable file uploads"
+msgstr "Dateiuploads aktivieren"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Fields marked * are required. You can review your declaration before submitting it."
+msgstr "Die mit * markierten Felder sind Pflichtfelder. Sie können Ihre Erklärung vor dem Absenden prüfen."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "File uploads are disabled."
+msgstr "Dateiuploads sind deaktiviert."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__values_json
+msgid "Form values"
+msgstr "Formularwerte"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+#: model:ir.model.fields.selection,name:odoo_widerrufbutton.selection__widerruf_record__withdrawal_type__full
+msgid "Full withdrawal"
+msgstr "Vollständiger Widerruf"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__ip_hash
+msgid "IP hash"
+msgstr "IP-Hash"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields.selection,name:odoo_widerrufbutton.selection__widerruf_record__state__in_progress
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "In progress"
+msgstr "In Bearbeitung"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__internal_mail_sent
+msgid "Internal email sent"
+msgstr "Interne E-Mail versendet"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__internal_mail_sent_at
+msgid "Internal email sent at"
+msgstr "Interne E-Mail versendet am"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__internal_mail_id
+msgid "Internal notification"
+msgstr "Interne Benachrichtigung"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_internal_notify_email
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Internal notification address"
+msgstr "Interne Benachrichtigungsadresse"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Introduction"
+msgstr "Einleitungstext"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Introduction for customers"
+msgstr "Einleitungstext für Kunden"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "Invalid attachment filename."
+msgstr "Ungültiger Dateiname für den Anhang."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "Invalid file type or upload size exceeded."
+msgstr "Ungültiger Dateityp oder maximale Uploadgröße überschritten."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/validation.py:0
+msgid "Invalid form data. Please check your entries."
+msgstr "Ungültige Formulardaten. Bitte prüfen Sie Ihre Eingaben."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/validation.py:0
+msgid "Invalid value or maximum length exceeded."
+msgstr "Ungültiger Wert oder maximale Länge überschritten."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
+msgid "Invalid withdrawal data: %s"
+msgstr "Ungültige Widerrufsdaten: %s"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__customer_status_mail_id
+msgid "Latest status email"
+msgstr "Letzte Status-E-Mail"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__customer_status_mail_sent_at
+msgid "Latest status email sent at"
+msgstr "Letzte Status-E-Mail versendet am"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__legacy_confirmation_mail_sent
+msgid "Legacy unverified sent flag"
+msgstr "Alter ungeprüfter Versandstatus"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__legacy_confirmation_mail_sent_at
+msgid "Legacy unverified sent timestamp"
+msgstr "Alter ungeprüfter Versandzeitpunkt"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Maximum size of one attachment in MB."
+msgstr "Maximale Größe eines Anhangs in MB."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Maximum upload size"
+msgstr "Maximale Uploadgröße"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_max_upload_size_mb
+msgid "Maximum upload size in MB"
+msgstr "Maximale Uploadgröße in MB"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__message
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Message"
+msgstr "Mitteilung"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+msgid "My withdrawals"
+msgstr "Meine Widerrufe"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__customer_name
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Name"
+msgstr "Name"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Name *"
+msgstr "Name *"
+
+#. module: odoo_widerrufbutton
+#: model:mail.template,subject:odoo_widerrufbutton.mail_template_widerruf_internal_notification
+msgid "New withdrawal {{ object.name }}"
+msgstr "Neuer Widerruf {{ object.name }}"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/portal.py:0
+msgid "Newest first"
+msgstr "Neueste zuerst"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Notifications and activities"
+msgstr "Benachrichtigungen und Aktivitäten"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Optional attachments"
+msgstr "Optionale Anhänge"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__order_reference
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Order or invoice reference"
+msgstr "Bestell- oder Rechnungsnummer"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Order or invoice reference *"
+msgstr "Bestell- oder Rechnungsnummer *"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Origin"
+msgstr "Herkunft"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Original receipt"
+msgstr "Originaleingang"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__original_submission
+msgid "Original receipt snapshot"
+msgstr "Unveränderter Eingangssnapshot"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+#: model:ir.model.fields.selection,name:odoo_widerrufbutton.selection__widerruf_record__withdrawal_type__message
+msgid "Other message"
+msgstr "Sonstige Mitteilung"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+#: model:ir.model.fields.selection,name:odoo_widerrufbutton.selection__widerruf_record__withdrawal_type__partial
+msgid "Partial withdrawal"
+msgstr "Teilweiser Widerruf"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Please check your details. Your declaration is submitted only when you press the confirmation button."
+msgstr "Bitte prüfen Sie Ihre Angaben. Erst mit dem Bestätigungsbutton wird Ihre Erklärung abgesendet."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/validation.py:0
+msgid "Please complete this field with a valid value."
+msgstr "Bitte füllen Sie dieses Feld mit einem gültigen Wert aus."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/res_config_settings.py:0
+#: code:addons/odoo_widerrufbutton/validation.py:0
+msgid "Please enter one valid email address."
+msgstr "Bitte geben Sie genau eine gültige E-Mail-Adresse ein."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
+msgid "Please review the received declaration."
+msgstr "Bitte prüfen Sie die eingegangene Erklärung."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/validation.py:0
+msgid "Please select a valid withdrawal type."
+msgstr "Bitte wählen Sie eine gültige Art des Widerrufs aus."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Queue a customer email when the status changes."
+msgstr "Merkt bei einer Statusänderung eine Kunden-E-Mail vor."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Queue an internal email for each new withdrawal."
+msgstr "Merkt für jeden neuen Widerruf eine interne E-Mail vor."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Queue confirmation again"
+msgstr "Bestätigung erneut vormerken"
+
+#. module: odoo_widerrufbutton
+#: model:mail.template,subject:odoo_widerrufbutton.mail_template_widerruf_confirmation
+msgid "Receipt confirmation for your withdrawal {{ object.name }}"
+msgstr "Eingangsbestätigung zu Ihrem Widerruf {{ object.name }}"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
+msgid "Receipt identity and delivery evidence cannot be edited directly."
+msgstr "Eingangsidentität und Versandnachweise dürfen nicht direkt bearbeitet werden."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields.selection,name:odoo_widerrufbutton.selection__widerruf_record__state__confirmed
+msgid "Received"
+msgstr "Eingegangen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__received_at
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+msgid "Received at"
+msgstr "Eingegangen am"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Recipient of internal withdrawal notifications."
+msgstr "Empfänger interner Widerrufsbenachrichtigungen."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/portal.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__name
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+msgid "Reference"
+msgstr "Vorgangsnummer"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Responsible user"
+msgstr "Zuständiger Benutzer"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Review details"
+msgstr "Angaben prüfen"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
+msgid "Review new withdrawal"
+msgstr "Neuen Widerruf prüfen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Send internal email"
+msgstr "Interne E-Mail vormerken"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_send_internal_mail
+msgid "Send internal email on new withdrawal"
+msgstr "Interne E-Mail bei neuem Widerruf vormerken"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__session_hash
+msgid "Session hash"
+msgstr "Sitzungs-Hash"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_footer_button_enabled
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Show footer button"
+msgstr "Footer-Button anzeigen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Show or hide the withdrawal button in the website footer."
+msgstr "Blendet den Widerrufsbutton im Website-Footer ein oder aus."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Show portal view"
+msgstr "Portalansicht anzeigen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Show received withdrawals linked to the verified customer account."
+msgstr "Zeigt eingegangene Widerrufe an, die dem verifizierten Kundenkonto zugeordnet sind."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_show_portal
+msgid "Show withdrawals in customer portal"
+msgstr "Widerrufe im Kundenportal anzeigen"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/portal.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__state
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+msgid "Status"
+msgstr "Status"
+
+#. module: odoo_widerrufbutton
+#: model:mail.template,subject:odoo_widerrufbutton.mail_template_widerruf_status_update
+msgid "Status update for your withdrawal {{ object.name }}"
+msgstr "Statusänderung zu Ihrem Widerruf {{ object.name }}"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Text displayed above the withdrawal form."
+msgstr "Text oberhalb des Widerrufsformulars."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_success_page
+msgid "The confirmation email has been sent."
+msgstr "Die Bestätigungs-E-Mail wurde versendet."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "The file content does not match its extension."
+msgstr "Der Dateiinhalt passt nicht zur Dateiendung."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "The form has expired or is invalid. Please enter your details again."
+msgstr "Das Formular ist abgelaufen oder ungültig. Bitte geben Sie Ihre Angaben erneut ein."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.constraint,message:odoo_widerrufbutton.constraint_widerruf_submission_token_unique
+msgid "The form token must be unique."
+msgstr "Das Formulartoken muss eindeutig sein."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/validation.py:0
+msgid "The request could not be processed."
+msgstr "Die Anfrage konnte nicht verarbeitet werden."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+msgid "There are no withdrawals in your customer account."
+msgstr "In Ihrem Kundenkonto sind keine Widerrufe vorhanden."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.constraint,message:odoo_widerrufbutton.constraint_widerruf_record_submission_unique
+msgid "This submission has already been received."
+msgstr "Diese Erklärung ist bereits eingegangen."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__token_hash
+msgid "Token hash"
+msgstr "Token-Hash"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "Too many requests. Please try again later."
+msgstr "Zu viele Anfragen. Bitte versuchen Sie es später erneut."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+msgid "Type"
+msgstr "Art"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Up to three PDF, JPG or PNG files; the configured size limit applies."
+msgstr "Bis zu drei PDF-, JPG- oder PNG-Dateien; es gilt die eingestellte Größenbegrenzung."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/res_config_settings.py:0
+msgid "Upload size must be between 1 and 10 MB."
+msgstr "Die Uploadgröße muss zwischen 1 und 10 MB liegen."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,help:odoo_widerrufbutton.field_res_config_settings__widerruf_activity_user_id
+msgid "User assigned to the activity for new withdrawals."
+msgstr "Benutzer, dem die Aktivität für neue Widerrufe zugewiesen wird."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "User assigned to the activity."
+msgstr "Benutzer, dem die Aktivität zugewiesen wird."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__partner_id
+msgid "Verified customer account"
+msgstr "Verifiziertes Kundenkonto"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__website_id
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__website_id
+msgid "Website"
+msgstr "Website"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Website and form"
+msgstr "Website und Formular"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+msgid "Withdraw from another contract"
+msgstr "Weiteren Vertrag widerrufen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_footer_link
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Withdraw from contract"
+msgstr "Vertrag widerrufen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model,name:odoo_widerrufbutton.model_widerruf_record
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+msgid "Withdrawal"
+msgstr "Widerruf"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
+msgid "Withdrawal form"
+msgstr "Widerrufsformular"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model,name:odoo_widerrufbutton.model_widerruf_submission
+msgid "Withdrawal form draft"
+msgstr "Widerrufsformular-Entwurf"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_customer_intro_text
+msgid "Withdrawal introduction"
+msgstr "Einleitungstext zum Widerruf"
+
+#. module: odoo_widerrufbutton
+#: model:res.groups,name:odoo_widerrufbutton.group_widerruf_manager
+msgid "Withdrawal manager"
+msgstr "Widerrufsmanager"
+
+#. module: odoo_widerrufbutton
+#: model:res.groups,name:odoo_widerrufbutton.group_widerruf_user
+msgid "Withdrawal operator"
+msgstr "Widerrufsbearbeiter"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__widerruf_activity_user_id
+msgid "Withdrawal responsible user"
+msgstr "Zuständiger Benutzer für Widerrufe"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__withdrawal_type
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_review_page
+msgid "Withdrawal type"
+msgstr "Art des Widerrufs"
+
+#. module: odoo_widerrufbutton
+#: model:ir.actions.act_window,name:odoo_widerrufbutton.action_widerruf_record
+#: model:ir.ui.menu,name:odoo_widerrufbutton.menu_widerruf_records
+#: model:ir.ui.menu,name:odoo_widerrufbutton.menu_widerruf_root
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_home_widerruf
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_list_19
+msgid "Withdrawals"
+msgstr "Widerrufe"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_success_page
+msgid "Your confirmation email has been queued for delivery."
+msgstr "Ihre Bestätigungs-E-Mail wurde für den Versand vorgemerkt."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_success_page
+msgid "Your declaration has been recorded. The confirmation email could not be prepared or sent. Please contact us if needed."
+msgstr "Ihre Erklärung wurde gespeichert. Die Bestätigungs-E-Mail konnte nicht vorbereitet oder versendet werden. Bitte kontaktieren Sie uns bei Bedarf."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_success_page
+msgid "Your reference:"
+msgstr "Ihre Vorgangsnummer:"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_success_page
+msgid "Your withdrawal has been received"
+msgstr "Ihr Widerruf ist eingegangen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+msgid "not marked as sent"
+msgstr "nicht als versendet markiert"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
+msgid "sent at"
+msgstr "versendet am"
+
+
+#. module: odoo_widerrufbutton
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Attachments may not exceed 10 MB in total."
+msgstr "Anhänge dürfen insgesamt höchstens 10 MB groß sein."
+
+#. module: odoo_widerrufbutton
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid "Attachment upload limit reached. Please try without files or try again later."
+msgstr "Das Uploadlimit für Anhänge ist erreicht. Bitte versuchen Sie es ohne Dateien oder später erneut."
