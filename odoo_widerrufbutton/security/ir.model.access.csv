@@ -3,3 +3,5 @@ access_widerruf_record_user,widerruf.record.operator,model_widerruf_record,odoo_
 access_widerruf_record_manager,widerruf.record.manager,model_widerruf_record,odoo_widerrufbutton.group_widerruf_manager,1,1,1,1
 access_widerruf_record_admin,widerruf.record.admin,model_widerruf_record,base.group_system,1,1,1,1
 access_widerruf_submission_admin,widerruf.submission.admin,model_widerruf_submission,base.group_system,1,1,1,1
+access_widerruf_assignment_user,widerruf.document.assignment.user,model_widerruf_document_assignment,odoo_widerrufbutton.group_widerruf_user,1,1,1,1
+access_widerruf_assignment_admin,widerruf.document.assignment.admin,model_widerruf_document_assignment,base.group_system,1,1,1,1

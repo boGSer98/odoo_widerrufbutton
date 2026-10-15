@@ -1,0 +1,124 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odoo_widerrufbutton_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260323\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 09:41+0000\n"
+"PO-Revision-Date: 2026-10-15 09:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+msgid "An exact same-company document match was linked automatically."
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model,name:odoo_widerrufbutton_account.model_widerruf_document_assignment
+msgid "Assign a withdrawal to a document"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_document_assignment__invoice_id
+msgid "Customer invoice / credit note"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_reference_found
+msgid "Customer invoice / credit note available"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_move__display_name
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_document_assignment__display_name
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_email_matches
+msgid "Document email matches"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_email_mismatch_warning
+msgid "Document email warning"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_move__id
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_document_assignment__id
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__id
+msgid "ID"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_document_count
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__related_invoice_ids
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton_account.view_widerruf_record_form_account
+msgid "Invoices / credit notes"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model,name:odoo_widerrufbutton_account.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_widerruf_record__invoice_id
+msgid "Linked customer invoice / credit note"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+msgid "Only customer invoices or credit notes can be assigned."
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+msgid "Please select a document."
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/widerruf_record.py:0
+msgid ""
+"The submitted email differs from the linked document. Please review the "
+"assignment."
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#: model:ir.model,name:odoo_widerrufbutton_account.model_widerruf_record
+msgid "Withdrawal"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/account_move.py:0
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_bank_statement_line__widerruf_count
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_bank_statement_line__widerruf_ids
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_move__widerruf_count
+#: model:ir.model.fields,field_description:odoo_widerrufbutton_account.field_account_move__widerruf_ids
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton_account.invoice_withdrawal_smartbutton
+msgid "Withdrawals"
+msgstr ""
+
+#. module: odoo_widerrufbutton_account
+#. odoo-python
+#: code:addons/odoo_widerrufbutton_account/models/account_move.py:0
+msgid "id"
+msgstr ""

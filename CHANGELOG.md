@@ -2,6 +2,14 @@
 
 Alle relevanten Änderungen am Modul `odoo_widerrufbutton` werden in dieser Datei dokumentiert.
 
+## 19.0.8.0.0
+
+- Native Smartbuttons für Angebote/Aufträge und Rechnungen/Gutschriften am Widerruf; zugehörige Belege über echte Auftrags-/Rechnungszeilen erschlossen.
+- Geschützter Zuordnungsdialog für die manuelle Auswahl vorhandener Dokumente desselben Unternehmens; keine neue Vorgangsdatenbank und keine Belegneuanlage.
+- Manuelle Zuordnungen bleiben bei erneuter Suche oder Referenzänderung erhalten; Neuzuordnung bereinigt alte direkte Links, Entfernung ändert keine Finanzdaten.
+- Widerrufs-Smartbuttons an Aufträgen und Rechnungen inklusive Rechteprüfung und aktualisierten Zählerabhängigkeiten.
+- DE/EN/NL für Integration und Dialog sowie native Dokument-Regressionsprüfungen ergänzt.
+
 ## 19.0.7.0.0
 
 ### Sicherheit und Fehlerkorrekturen

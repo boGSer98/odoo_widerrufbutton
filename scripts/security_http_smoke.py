@@ -9,7 +9,7 @@ import requests
 from PIL import Image
 
 p=argparse.ArgumentParser();p.add_argument('--base-url',required=True);p.add_argument('--db',required=True);p.add_argument('--output',required=True);a=p.parse_args()
-assert a.db.startswith('ahd_widerruf7_'), 'Isolated clone only'
+assert a.db.startswith(('ahd_widerruf7_', 'ahd_widerruf8_')), 'Isolated clone only'
 base=a.base_url.rstrip('/');checks=[]
 def check(name,ok):
     assert ok,name

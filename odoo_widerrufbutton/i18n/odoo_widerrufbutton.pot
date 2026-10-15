@@ -6,23 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e-20260323\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-15 08:23+0000\n"
-"PO-Revision-Date: 2026-10-15 08:23+0000\n"
+"POT-Creation-Date: 2026-10-15 09:41+0000\n"
+"PO-Revision-Date: 2026-10-15 09:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: odoo_widerrufbutton
-#. odoo-python
-#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
-msgid ""
-"\n"
-"\n"
-"Der Widerruf enthält %s Anhang/Anhänge."
-msgstr ""
 
 #. module: odoo_widerrufbutton
 #: model:mail.template,body_html:odoo_widerrufbutton.mail_template_widerruf_internal_notification
@@ -152,6 +143,24 @@ msgid "Allowed file extensions"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid "Assign"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model:ir.model,name:odoo_widerrufbutton.model_widerruf_document_assignment
+msgid "Assign a withdrawal to a document"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Assign document"
+msgstr ""
+
+#. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__message_attachment_count
 msgid "Attachment Count"
 msgstr ""
@@ -162,11 +171,26 @@ msgid "Attachment count"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+msgid ""
+"Attachment upload limit reached. Please try without files or try again "
+"later."
+msgstr ""
+
+#. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__attachment_ids
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerrufe
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
 msgid "Attachments"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.widerruf_page
+msgid "Attachments may not exceed 10 MB in total."
 msgstr ""
 
 #. module: odoo_widerrufbutton
@@ -186,9 +210,13 @@ msgid "Back to overview"
 msgstr ""
 
 #. module: odoo_widerrufbutton
-#. odoo-python
-#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
-msgid "Bitte prüfen Sie den Widerruf %s und bearbeiten Sie den Vorgang."
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid "Cancel"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Check documents"
 msgstr ""
 
 #. module: odoo_widerrufbutton
@@ -213,6 +241,7 @@ msgid "Comma-separated allowed file extensions without a dot."
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__company_id
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__company_id
 msgid "Company"
 msgstr ""
@@ -267,12 +296,14 @@ msgid "Create activity on new withdrawal"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__create_uid
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__create_uid
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__create_date
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__create_date
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__create_date
 msgid "Created on"
@@ -300,9 +331,39 @@ msgstr ""
 
 #. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__display_name
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__display_name
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__document_assignment_available
+msgid "Document Assignment Available"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Document assignment"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "Document assignment origin cannot be edited directly."
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid ""
+"Document assignment was selected manually. No document was cancelled or "
+"refunded."
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__document_type
+msgid "Document type"
 msgstr ""
 
 #. module: odoo_widerrufbutton
@@ -413,6 +474,7 @@ msgstr ""
 
 #. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_res_config_settings__id
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__id
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__id
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__id
 msgid "ID"
@@ -517,12 +579,14 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__write_uid
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__write_uid
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__write_date
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__write_date
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__write_date
 msgid "Last Updated on"
@@ -539,6 +603,11 @@ msgid "Latest status email sent at"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__legacy_delivery_evidence
+msgid "Legacy delivery evidence"
+msgstr ""
+
+#. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__legacy_confirmation_mail_sent
 msgid "Legacy unverified sent flag"
 msgstr ""
@@ -546,6 +615,11 @@ msgstr ""
 #. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__legacy_confirmation_mail_sent_at
 msgid "Legacy unverified sent timestamp"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__documents_manually_assigned
+msgid "Manual document assignment"
 msgstr ""
 
 #. module: odoo_widerrufbutton
@@ -604,24 +678,6 @@ msgid "Name *"
 msgstr ""
 
 #. module: odoo_widerrufbutton
-#. odoo-python
-#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
-msgid "Neu"
-msgstr ""
-
-#. module: odoo_widerrufbutton
-#. odoo-python
-#: code:addons/odoo_widerrufbutton/models/widerruf_record.py:0
-msgid "Neuen Widerruf prüfen"
-msgstr ""
-
-#. module: odoo_widerrufbutton
-#. odoo-python
-#: code:addons/odoo_widerrufbutton/controllers/portal.py:0
-msgid "Neueste zuerst"
-msgstr ""
-
-#. module: odoo_widerrufbutton
 #: model:mail.template,subject:odoo_widerrufbutton.mail_template_widerruf_internal_notification
 msgid "New withdrawal {{ object.name }}"
 msgstr ""
@@ -653,6 +709,18 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "No document integration is available with your access rights."
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "No linked document is available with your access rights."
+msgstr ""
+
+#. module: odoo_widerrufbutton
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.res_config_settings_view_form_widerruf
 msgid "Notifications and activities"
 msgstr ""
@@ -675,6 +743,13 @@ msgstr ""
 #. module: odoo_widerrufbutton
 #: model:ir.model.fields,help:odoo_widerrufbutton.field_widerruf_record__message_has_error_counter
 msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid ""
+"Only existing documents in the same company can be assigned. No cancellation"
+" or refund is triggered."
 msgstr ""
 
 #. module: odoo_widerrufbutton
@@ -818,6 +893,16 @@ msgid "Reference"
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Remove assignment"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Remove the document links? The documents themselves remain unchanged."
+msgstr ""
+
+#. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__activity_user_id
 msgid "Responsible User"
 msgstr ""
@@ -842,6 +927,12 @@ msgstr ""
 #. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__message_has_sms_error
 msgid "SMS Delivery error"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "Select an offer, order or customer invoice."
 msgstr ""
 
 #. module: odoo_widerrufbutton
@@ -925,6 +1016,12 @@ msgstr ""
 
 #. module: odoo_widerrufbutton
 #. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "The document must belong to the same company as the withdrawal."
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#. odoo-python
 #: code:addons/odoo_widerrufbutton/controllers/main.py:0
 msgid "The file content does not match its extension."
 msgstr ""
@@ -983,6 +1080,11 @@ msgid "Up to three PDF, JPG or PNG files; the configured size limit applies."
 msgstr ""
 
 #. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_submission__upload_bytes
+msgid "Upload bytes"
+msgstr ""
+
+#. module: odoo_widerrufbutton
 #. odoo-python
 #: code:addons/odoo_widerrufbutton/models/res_config_settings.py:0
 msgid "Upload size must be between 1 and 10 MB."
@@ -1001,12 +1103,6 @@ msgstr ""
 #. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__partner_id
 msgid "Verified customer account"
-msgstr ""
-
-#. module: odoo_widerrufbutton
-#. odoo-python
-#: code:addons/odoo_widerrufbutton/controllers/portal.py:0
-msgid "Vorgangsnummer"
 msgstr ""
 
 #. module: odoo_widerrufbutton
@@ -1059,6 +1155,7 @@ msgstr ""
 
 #. module: odoo_widerrufbutton
 #: model:ir.model,name:odoo_widerrufbutton.model_widerruf_record
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__widerruf_id
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
 msgid "Withdrawal"
@@ -1109,6 +1206,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_home_widerruf
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_list_19
 msgid "Withdrawals"
+msgstr ""
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid ""
+"Without an exact match, use Assign document to select an existing offer, "
+"order or invoice. Manual assignments are preserved during automatic "
+"searches."
 msgstr ""
 
 #. module: odoo_widerrufbutton

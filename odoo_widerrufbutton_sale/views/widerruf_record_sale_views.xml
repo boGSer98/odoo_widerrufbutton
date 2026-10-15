@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_widerruf_record_form_sale" model="ir.ui.view">
-        <field name="name">widerruf.record.form.sale</field>
-        <field name="model">widerruf.record</field>
-        <field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_form_19"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='website_id']" position="after">
-                <field name="sale_reference_found" readonly="1"/>
-                <field name="sale_order_id" readonly="1"/>
-                <field name="sale_email_matches" readonly="1"/>
-                <field name="sale_email_mismatch_warning" readonly="1"/>
-                <button name="action_try_link_sale_order" type="object" string="Verkaufsauftrag suchen" class="btn-secondary"/>
-            </xpath>
-        </field>
-    </record>
-
-    <record id="view_widerruf_record_list_sale" model="ir.ui.view">
-        <field name="name">widerruf.record.list.sale</field>
-        <field name="model">widerruf.record</field>
-        <field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_list_19"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_reference']" position="after">
-                <field name="sale_reference_found"/>
-                <field name="sale_order_id"/>
-            </xpath>
-        </field>
-    </record>
+ <record id="view_widerruf_record_form_sale" model="ir.ui.view"><field name="name">widerruf.record.form.sale</field><field name="model">widerruf.record</field><field name="inherit_id" ref="odoo_widerrufbutton.withdrawal_document_workflow_form"/><field name="arch" type="xml">
+  <xpath expr="//div[@name='withdrawal_document_buttons']" position="inside"><button name="action_open_sale_documents" type="object" class="oe_stat_button" icon="fa-shopping-cart" invisible="sale_document_count == 0" groups="sales_team.group_sale_salesman,account.group_account_invoice,account.group_account_readonly"><field name="sale_document_count" widget="statinfo" string="Offers / orders"/></button></xpath>
+  <xpath expr="//field[@name='website_id']" position="after"><field name="sale_order_id" readonly="1" groups="sales_team.group_sale_salesman,account.group_account_invoice,account.group_account_readonly"/><field name="sale_email_mismatch_warning" readonly="1" invisible="not sale_email_mismatch_warning" groups="sales_team.group_sale_salesman,account.group_account_invoice,account.group_account_readonly"/></xpath>
+ </field></record>
+ <record id="view_widerruf_record_list_sale" model="ir.ui.view"><field name="name">widerruf.record.list.sale</field><field name="model">widerruf.record</field><field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_list_19"/><field name="arch" type="xml"><xpath expr="//field[@name='order_reference']" position="after"><field name="sale_document_count" optional="show" groups="sales_team.group_sale_salesman,account.group_account_invoice,account.group_account_readonly"/></xpath></field></record>
+ <record id="assignment_form_sale" model="ir.ui.view"><field name="name">widerruf.assignment.sale</field><field name="model">widerruf.document.assignment</field><field name="inherit_id" ref="odoo_widerrufbutton.document_assignment_form"/><field name="arch" type="xml"><xpath expr="//field[@name='document_type']" position="after"><field name="sale_order_id" domain="[('company_id', '=', company_id)]" invisible="document_type != 'sale'" required="document_type == 'sale'" groups="sales_team.group_sale_salesman,account.group_account_invoice,account.group_account_readonly" options="{'no_create': True, 'no_create_edit': True}"/></xpath></field></record>
 </odoo>

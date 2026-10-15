@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_widerruf_record_form_account" model="ir.ui.view">
-        <field name="name">widerruf.record.form.account</field>
-        <field name="model">widerruf.record</field>
-        <field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_form_19"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='website_id']" position="after">
-                <field name="invoice_reference_found" readonly="1"/>
-                <field name="invoice_id" readonly="1"/>
-                <field name="invoice_email_matches" readonly="1"/>
-                <field name="invoice_email_mismatch_warning" readonly="1"/>
-                <button name="action_try_link_invoice" type="object" string="Rechnung suchen" class="btn-secondary"/>
-            </xpath>
-        </field>
-    </record>
-
-    <record id="view_widerruf_record_list_account" model="ir.ui.view">
-        <field name="name">widerruf.record.list.account</field>
-        <field name="model">widerruf.record</field>
-        <field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_list_19"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_reference']" position="after">
-                <field name="invoice_reference_found"/>
-                <field name="invoice_id"/>
-            </xpath>
-        </field>
-    </record>
+ <record id="view_widerruf_record_form_account" model="ir.ui.view"><field name="name">widerruf.record.form.invoice</field><field name="model">widerruf.record</field><field name="inherit_id" ref="odoo_widerrufbutton.withdrawal_document_workflow_form"/><field name="arch" type="xml">
+  <xpath expr="//div[@name='withdrawal_document_buttons']" position="inside"><button name="action_open_invoice_documents" type="object" class="oe_stat_button" icon="fa-file-text-o" invisible="invoice_document_count == 0" groups="account.group_account_invoice,account.group_account_readonly"><field name="invoice_document_count" widget="statinfo" string="Invoices / credit notes"/></button></xpath>
+  <xpath expr="//field[@name='website_id']" position="after"><field name="invoice_id" readonly="1" groups="account.group_account_invoice,account.group_account_readonly"/><field name="invoice_email_mismatch_warning" readonly="1" invisible="not invoice_email_mismatch_warning" groups="account.group_account_invoice,account.group_account_readonly"/></xpath>
+ </field></record>
+ <record id="view_widerruf_record_list_account" model="ir.ui.view"><field name="name">widerruf.record.list.invoice</field><field name="model">widerruf.record</field><field name="inherit_id" ref="odoo_widerrufbutton.view_widerruf_record_list_19"/><field name="arch" type="xml"><xpath expr="//field[@name='order_reference']" position="after"><field name="invoice_document_count" optional="show" groups="account.group_account_invoice,account.group_account_readonly"/></xpath></field></record>
+ <record id="assignment_form_invoice" model="ir.ui.view"><field name="name">widerruf.assignment.invoice</field><field name="model">widerruf.document.assignment</field><field name="inherit_id" ref="odoo_widerrufbutton.document_assignment_form"/><field name="arch" type="xml"><xpath expr="//field[@name='document_type']" position="after"><field name="invoice_id" domain="[('company_id', '=', company_id), ('move_type', 'in', ['out_invoice', 'out_refund'])]" invisible="document_type != 'invoice'" required="document_type == 'invoice'" groups="account.group_account_invoice,account.group_account_readonly" options="{'no_create': True, 'no_create_edit': True}"/></xpath></field></record>
+ <record id="invoice_withdrawal_smartbutton" model="ir.ui.view"><field name="name">account.move.withdrawal.smartbutton</field><field name="model">account.move</field><field name="inherit_id" ref="account.view_move_form"/><field name="arch" type="xml"><xpath expr="//div[@name='button_box']" position="inside"><button name="action_view_widerrufe" type="object" class="oe_stat_button" icon="fa-undo" invisible="widerruf_count == 0" groups="odoo_widerrufbutton.group_widerruf_user,base.group_system"><field name="widerruf_count" widget="statinfo" string="Withdrawals"/></button></xpath></field></record>
 </odoo>

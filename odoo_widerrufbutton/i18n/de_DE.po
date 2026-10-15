@@ -117,6 +117,7 @@ msgstr "Erlaubte Dateiendungen ohne Punkt, durch Kommas getrennt."
 
 #. module: odoo_widerrufbutton
 #: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__company_id
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__company_id
 msgid "Company"
 msgstr "Unternehmen"
 
@@ -726,6 +727,7 @@ msgstr "Vertrag widerrufen"
 #: model:ir.model,name:odoo_widerrufbutton.model_widerruf_record
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.portal_my_widerruf_detail
 #: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.view_widerruf_record_form_19
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__widerruf_id
 msgid "Withdrawal"
 msgstr "Widerruf"
 
@@ -817,3 +819,107 @@ msgstr "Anhänge dürfen insgesamt höchstens 10 MB groß sein."
 #: code:addons/odoo_widerrufbutton/controllers/main.py:0
 msgid "Attachment upload limit reached. Please try without files or try again later."
 msgstr "Das Uploadlimit für Anhänge ist erreicht. Bitte versuchen Sie es ohne Dateien oder später erneut."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid "Assign"
+msgstr "Zuordnen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model,name:odoo_widerrufbutton.model_widerruf_document_assignment
+msgid "Assign a withdrawal to a document"
+msgstr "Widerruf einem Dokument zuordnen"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Assign document"
+msgstr "Dokument zuordnen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Check documents"
+msgstr "Dokumente prüfen"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__document_assignment_available
+msgid "Document Assignment Available"
+msgstr "Dokumentzuordnung verfügbar"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Document assignment"
+msgstr "Dokumentzuordnung"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "Document assignment origin cannot be edited directly."
+msgstr "Die Herkunft der Dokumentzuordnung darf nicht direkt bearbeitet werden."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "Document assignment was selected manually. No document was cancelled or refunded."
+msgstr "Die Dokumentzuordnung wurde manuell festgelegt. Es wurde kein Dokument storniert und keine Erstattung ausgelöst."
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_document_assignment__document_type
+msgid "Document type"
+msgstr "Dokumentart"
+
+#. module: odoo_widerrufbutton
+#: model:ir.model.fields,field_description:odoo_widerrufbutton.field_widerruf_record__documents_manually_assigned
+msgid "Manual document assignment"
+msgstr "Manuelle Dokumentzuordnung"
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "No document integration is available with your access rights."
+msgstr "Mit Ihren Zugriffsrechten ist keine Dokumentintegration verfügbar."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "No linked document is available with your access rights."
+msgstr "Mit Ihren Zugriffsrechten ist kein verknüpftes Dokument verfügbar."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.document_assignment_form
+msgid "Only existing documents in the same company can be assigned. No cancellation or refund is triggered."
+msgstr "Es können nur vorhandene Dokumente desselben Unternehmens zugeordnet werden. Es wird keine Stornierung oder Erstattung ausgelöst."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Remove assignment"
+msgstr "Zuordnung entfernen"
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Remove the document links? The documents themselves remain unchanged."
+msgstr "Dokumentverknüpfungen entfernen? Die Dokumente selbst bleiben unverändert."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "Select an offer, order or customer invoice."
+msgstr "Wählen Sie ein Angebot, einen Auftrag oder eine Kundenrechnung aus."
+
+#. module: odoo_widerrufbutton
+#. odoo-python
+#: code:addons/odoo_widerrufbutton/models/document_assignment.py:0
+msgid "The document must belong to the same company as the withdrawal."
+msgstr "Das Dokument muss zum selben Unternehmen wie der Widerruf gehören."
+
+#. module: odoo_widerrufbutton
+#: model_terms:ir.ui.view,arch_db:odoo_widerrufbutton.withdrawal_document_workflow_form
+msgid "Without an exact match, use Assign document to select an existing offer, order or invoice. Manual assignments are preserved during automatic searches."
+msgstr "Ohne eindeutigen Treffer können Sie über „Dokument zuordnen“ ein vorhandenes Angebot, einen Auftrag oder eine Rechnung auswählen. Manuelle Zuordnungen bleiben bei automatischen Suchen erhalten."
