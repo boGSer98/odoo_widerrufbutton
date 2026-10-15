@@ -4,7 +4,7 @@
     "name": "Widerrufbutton Website",
     "summary": "Website withdrawal form with portal and backend management.",
     "description": "Website withdrawal form with portal and backend management.",
-    "version": "19.0.6.0.6",
+    "version": "19.0.7.0.0",
     "category": "Website/Website",
     "author": "IT-Service AHD",
     "website": "https://it-service-ahd.de",
@@ -21,6 +21,7 @@
         "portal",
     ],
     "data": [
+        "security/widerruf_security.xml",
         "security/ir.model.access.csv",
         "data/sequence.xml",
         "data/mail_template.xml",

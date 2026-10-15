@@ -3,11 +3,11 @@
 import base64
 
 from odoo import http, _
-from odoo.http import request
+from odoo.http import request, content_disposition
 from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
 
 
-class WiderrufCustomerPortal(CustomerPortal):
+class WithdrawalCustomerPortal(CustomerPortal):
     """Customer portal pages for withdrawal records."""
 
     def _portal_enabled(self):
@@ -45,18 +45,18 @@ class WiderrufCustomerPortal(CustomerPortal):
             return request.redirect("/my")
 
         values = self._prepare_portal_layout_values()
-        WiderrufRecord = request.env["widerruf.record"].sudo()
+        WithdrawalRecord = request.env["widerruf.record"].sudo()
         domain = self._get_portal_widerruf_domain()
 
         searchbar_sortings = {
-            "date": {"label": _("Neueste zuerst"), "order": "create_date desc"},
-            "name": {"label": _("Vorgangsnummer"), "order": "name desc"},
+            "date": {"label": _("Newest first"), "order": "create_date desc"},
+            "name": {"label": _("Reference"), "order": "name desc"},
             "state": {"label": _("Status"), "order": "state asc, create_date desc"},
         }
         sortby = sortby if sortby in searchbar_sortings else "date"
         order = searchbar_sortings[sortby]["order"]
 
-        total = WiderrufRecord.search_count(domain)
+        total = WithdrawalRecord.search_count(domain)
         pager = portal_pager(
             url="/my/widerrufe",
             url_args={"sortby": sortby},
@@ -64,7 +64,7 @@ class WiderrufCustomerPortal(CustomerPortal):
             page=page,
             step=self._items_per_page,
         )
-        records = WiderrufRecord.search(domain, order=order, limit=self._items_per_page, offset=pager["offset"])
+        records = WithdrawalRecord.search(domain, order=order, limit=self._items_per_page, offset=pager["offset"])
 
         values.update({
             "widerrufe": records,
@@ -103,6 +103,9 @@ class WiderrufCustomerPortal(CustomerPortal):
         filecontent = base64.b64decode(attachment.datas or b"")
         headers = [
             ("Content-Type", attachment.mimetype or "application/octet-stream"),
-            ("Content-Disposition", "attachment; filename=\"%s\"" % attachment.name),
+            ("Content-Disposition", content_disposition(attachment.name)),
+            ("X-Content-Type-Options", "nosniff"),
+            ("Cache-Control", "no-store"),
+            ("Content-Security-Policy", "sandbox"),
         ]
         return request.make_response(filecontent, headers)

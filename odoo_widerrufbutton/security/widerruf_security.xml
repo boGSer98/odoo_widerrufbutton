@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_widerruf_user" model="res.groups">
+        <field name="name">Withdrawal operator</field>
+        <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+    <record id="group_widerruf_manager" model="res.groups">
+        <field name="name">Withdrawal manager</field>
+        <field name="implied_ids" eval="[Command.link(ref('group_widerruf_user'))]"/>
+    </record>
+    <record id="widerruf_company_rule" model="ir.rule">
+        <field name="name">Withdrawals: allowed companies only</field>
+        <field name="model_id" ref="model_widerruf_record"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

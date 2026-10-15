@@ -7,46 +7,46 @@
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//form" position="inside">
-                <app data-string="Widerrufbutton" string="Widerrufbutton" name="odoo_widerrufbutton">
-                    <block title="Website und Formular" name="widerruf_website_form">
-                        <setting string="Footer-Button anzeigen" help="Blendet den Button Vertrag widerrufen im Website-Footer ein oder aus.">
+                <app data-string="Withdrawal form" string="Withdrawal form" name="odoo_widerrufbutton">
+                    <block title="Website and form" name="widerruf_website_form">
+                        <setting string="Show footer button" help="Show or hide the withdrawal button in the website footer.">
                             <field name="widerruf_footer_button_enabled"/>
                         </setting>
-                        <setting string="Einleitungstext" help="Text oberhalb des Widerrufsformulars.">
-                            <field name="widerruf_customer_intro_text" placeholder="Einleitungstext für Kunden"/>
+                        <setting string="Introduction" help="Text displayed above the withdrawal form.">
+                            <field name="widerruf_customer_intro_text" placeholder="Introduction for customers"/>
                         </setting>
-                        <setting string="Dateiupload aktivieren" help="Erlaubt Kunden, dem Widerruf einen optionalen Anhang beizufügen.">
+                        <setting string="Enable file uploads" help="Allow optional attachments to the withdrawal.">
                             <field name="widerruf_upload_enabled"/>
                         </setting>
-                        <setting string="Erlaubte Dateiendungen" help="Kommagetrennte Liste erlaubter Dateiendungen ohne Punkt.">
+                        <setting string="Allowed file extensions" help="Comma-separated allowed file extensions without a dot.">
                             <field name="widerruf_allowed_file_extensions" placeholder="pdf,jpg,jpeg,png"/>
                         </setting>
-                        <setting string="Maximale Dateigröße" help="Maximale Größe eines Anhangs in MB.">
+                        <setting string="Maximum upload size" help="Maximum size of one attachment in MB.">
                             <field name="widerruf_max_upload_size_mb"/>
                         </setting>
                     </block>
-                    <block title="Kundenportal" name="widerruf_portal">
-                        <setting string="Portalansicht anzeigen" help="Zeigt eingereichte Widerrufe im Kundenportal an, sofern sie mit dem Kundenkonto verknüpft sind.">
+                    <block title="Customer portal" name="widerruf_portal">
+                        <setting string="Show portal view" help="Show received withdrawals linked to the verified customer account.">
                             <field name="widerruf_show_portal"/>
                         </setting>
                     </block>
-                    <block title="Benachrichtigungen und Aktivitäten" name="widerruf_notifications">
-                        <setting string="Interne E-Mail senden" help="Sendet bei einem neuen Widerruf eine interne Benachrichtigung per E-Mail.">
+                    <block title="Notifications and activities" name="widerruf_notifications">
+                        <setting string="Send internal email" help="Queue an internal email for each new withdrawal.">
                             <field name="widerruf_send_internal_mail"/>
                         </setting>
-                        <setting string="Interne Benachrichtigungsadresse" help="Empfängeradresse für interne Widerrufsbenachrichtigungen.">
+                        <setting string="Internal notification address" help="Recipient of internal withdrawal notifications.">
                             <field name="widerruf_internal_notify_email" placeholder="widerruf@example.com"/>
                         </setting>
-                        <setting string="Aktivität erstellen" help="Erstellt bei jedem neuen Widerruf automatisch eine To-do-Aktivität.">
+                        <setting string="Create activity" help="Create a to-do activity for each new withdrawal.">
                             <field name="widerruf_create_activity"/>
                         </setting>
-                        <setting string="Zuständiger Benutzer" help="Benutzer, dem die automatische Aktivität zugewiesen wird.">
+                        <setting string="Responsible user" help="User assigned to the activity.">
                             <field name="widerruf_activity_user_id"/>
                         </setting>
-                        <setting string="Fälligkeit der Aktivität" help="Anzahl der Tage bis zur Fälligkeit der automatisch erstellten Aktivität.">
+                        <setting string="Activity deadline" help="Days until the activity is due.">
                             <field name="widerruf_activity_deadline_days"/>
                         </setting>
-                        <setting string="Statusänderungen an Kunden senden" help="Sendet bei Statusänderungen automatisch eine E-Mail an den Kunden.">
+                        <setting string="Email customers on status changes" help="Queue a customer email when the status changes.">
                             <field name="widerruf_send_customer_status_mail"/>
                         </setting>
                     </block>

@@ -6,7 +6,7 @@ from odoo import api, fields, models, _
 class WiderrufRecord(models.Model):
     _inherit = "widerruf.record"
 
-    invoice_id = fields.Many2one("account.move", string="Verknuepfte Rechnung", readonly=True, tracking=True)
+    invoice_id = fields.Many2one("account.move", check_company=True, string="Verknuepfte Rechnung", readonly=True, tracking=True)
     invoice_reference_found = fields.Boolean(string="Rechnung gefunden", readonly=True, tracking=True)
     invoice_email_matches = fields.Boolean(string="E-Mail passt zur Rechnung", compute="_compute_invoice_email_match_warning", store=True, readonly=True)
     invoice_email_mismatch_warning = fields.Char(string="Warnhinweis Rechnung", compute="_compute_invoice_email_match_warning", store=True, readonly=True)
@@ -44,25 +44,14 @@ class WiderrufRecord(models.Model):
     def _find_invoice(self):
         self.ensure_one()
         reference = self._get_clean_order_reference()
+        Model = self.env["account.move"].sudo()
         if not reference:
-            return self.env["account.move"]
-        AccountMove = self.env["account.move"].sudo()
-        invoice = AccountMove.search([
-            ("move_type", "in", ["out_invoice", "out_refund"]),
-            "|", "|",
-            ("name", "=", reference),
-            ("payment_reference", "=", reference),
-            ("ref", "=", reference),
-        ], limit=1)
-        if invoice:
-            return invoice
-        return AccountMove.search([
-            ("move_type", "in", ["out_invoice", "out_refund"]),
-            "|", "|",
-            ("name", "ilike", reference),
-            ("payment_reference", "ilike", reference),
-            ("ref", "ilike", reference),
-        ], limit=1)
+            return Model.browse()
+        domain = [("company_id", "=", self.company_id.id)]
+        domain += [("move_type", "in", ["out_invoice", "out_refund"])]
+        domain += ["|", "|", ('name', '=', reference), ('payment_reference', '=', reference), ('ref', '=', reference)]
+        matches = Model.search(domain, limit=2)
+        return matches if len(matches) == 1 else Model.browse()
 
     def _try_link_invoice(self, force=False):
         for record in self:
@@ -73,12 +62,11 @@ class WiderrufRecord(models.Model):
             invoice = record._find_invoice()
             if invoice:
                 values = {"invoice_id": invoice.id, "invoice_reference_found": True}
-                if not record.partner_id:
-                    values["partner_id"] = invoice.partner_id.commercial_partner_id.id
                 record.sudo().write(values)
                 record.message_post(body=_("Der Widerruf wurde mit der Rechnung %s verknuepft.") % invoice.name)
             elif force:
                 record.sudo().write({"invoice_id": False, "invoice_reference_found": False})
 
     def action_try_link_invoice(self):
+        self.check_access("write")
         self._try_link_invoice(force=True)

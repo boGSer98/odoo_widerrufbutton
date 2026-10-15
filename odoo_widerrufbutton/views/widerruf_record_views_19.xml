@@ -4,7 +4,7 @@
         <field name="name">widerruf.record.list.19</field>
         <field name="model">widerruf.record</field>
         <field name="arch" type="xml">
-            <list string="Widerrufe">
+            <list string="Withdrawals">
                 <field name="name"/>
                 <field name="create_date"/>
                 <field name="customer_name"/>
@@ -20,18 +20,18 @@
         <field name="name">widerruf.record.form.19</field>
         <field name="model">widerruf.record</field>
         <field name="arch" type="xml">
-            <form string="Widerruf">
+            <form string="Withdrawal">
                 <header>
-                    <button name="action_set_in_progress" type="object" string="In Bearbeitung" class="btn-primary" invisible="state != 'confirmed'"/>
-                    <button name="action_set_done" type="object" string="Erledigt" class="btn-primary" invisible="state == 'done'"/>
-                    <button name="action_set_cancelled" type="object" string="Abbrechen" invisible="state == 'cancelled'"/>
-                    <button name="action_send_confirmation_mail" type="object" string="E-Mail erneut senden"/>
+                    <button name="action_set_in_progress" type="object" string="In progress" class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_set_done" type="object" string="Done" class="btn-primary" invisible="state == 'done'"/>
+                    <button name="action_set_cancelled" type="object" string="Close without action" invisible="state == 'cancelled'"/>
+                    <button name="action_send_confirmation_mail" type="object" string="Queue confirmation again"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
                     <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
                     <group>
-                        <group string="Kundendaten">
+                        <group string="Customer details">
                             <field name="customer_name"/>
                             <field name="customer_email"/>
                             <field name="partner_id" readonly="1"/>
@@ -39,19 +39,19 @@
                             <field name="withdrawal_type"/>
                             <field name="message"/>
                         </group>
-                        <group string="Herkunft">
-                            <field name="website_id" readonly="1"/>
+                        <group string="Origin">
+                            <field name="website_id" readonly="1"/><field name="company_id" readonly="1"/>
                         </group>
                     </group>
-                    <group string="E-Mail-Status">
+                    <group string="Email status"><field name="confirmation_mail_state"/><field name="mail_error"/>
                         <field name="confirmation_mail_sent" readonly="1"/>
                         <field name="confirmation_mail_sent_at" readonly="1"/>
                         <field name="internal_mail_sent" readonly="1"/>
                         <field name="internal_mail_sent_at" readonly="1"/>
                         <field name="customer_status_mail_sent_at" readonly="1"/>
                     </group>
-                    <notebook>
-                        <page string="Anhänge">
+                    <notebook><page string="Original receipt"><field name="received_at"/><field name="original_submission" readonly="1"/></page>
+                        <page string="Attachments">
                             <field name="attachment_ids" widget="many2many_binary" readonly="1"/>
                         </page>
                     </notebook>
@@ -62,11 +62,11 @@
     </record>
 
     <record id="action_widerruf_record" model="ir.actions.act_window">
-        <field name="name">Widerrufe</field>
+        <field name="name">Withdrawals</field>
         <field name="res_model">widerruf.record</field>
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_widerruf_root" name="Widerrufe" sequence="80"/>
-    <menuitem id="menu_widerruf_records" name="Widerrufe" parent="menu_widerruf_root" action="action_widerruf_record" sequence="10"/>
+    <menuitem id="menu_widerruf_root" name="Withdrawals" sequence="80" groups="odoo_widerrufbutton.group_widerruf_user,base.group_system"/>
+    <menuitem id="menu_widerruf_records" name="Withdrawals" parent="menu_widerruf_root" action="action_widerruf_record" sequence="10"/>
 </odoo>

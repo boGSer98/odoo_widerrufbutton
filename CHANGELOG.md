@@ -2,6 +2,19 @@
 
 Alle relevanten Änderungen am Modul `odoo_widerrufbutton` werden in dieser Datei dokumentiert.
 
+## 19.0.7.0.0
+
+### Sicherheit und Fehlerkorrekturen
+
+- Pauschale interne ACL durch eigene Bearbeiter-/Managerrollen und globale Unternehmenstrennung ersetzt; keine versteckte sales_team-Abhängigkeit mehr.
+- Odoo-19-Mail-Platzhalter korrigiert; native Mailwarteschlange statt synchronem SMTP. Versandflags folgen tatsächlichem Mailstatus, Erfolgsseite unterscheidet Eingang und Versand.
+- Sitzungs- und websitegebundene, kurzlebige Entwürfe mit Einmalverarbeitung, Zeilensperre und eindeutigem Einreichungsschlüssel. Typ-/Adress-/Längenvalidierung und Missbrauchsquoten ergänzt.
+- Dateiupload tatsächlich implementiert: Dateiendungen, Inhalts-/Größenprüfung, vertrauliche Bindung an Entwurf/Eingang, sichere Downloadheader und temporäre Bereinigung.
+- Korrekturlink erhält Angaben/Anhänge. Öffentliche Seiten und Mailstandards DE/EN/NL ergänzt.
+- Originaleingänge und Legacy-Versandnachweise beim Upgrade erhalten; editor-eigene Mailtexte updatebeständig.
+- Optionale Belegbrücken auf exakte, eindeutige Treffer je Unternehmen begrenzt; keine automatische unbestätigte Portal-Kontozuordnung. Verkaufs-Smartbutton-Abhängigkeiten korrigiert.
+- Native Sicherheitsregressionen und isolierter HTTP-Smoke ergänzt.
+
 ## 19.0.6.0.6
 
 ### Geändert

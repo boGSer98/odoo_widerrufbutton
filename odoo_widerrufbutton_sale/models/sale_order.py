@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class SaleOrder(models.Model):
@@ -17,6 +17,7 @@ class SaleOrder(models.Model):
         compute="_compute_widerruf_count",
     )
 
+    @api.depends("widerruf_ids")
     def _compute_widerruf_count(self):
         grouped_data = self.env["widerruf.record"].sudo().read_group(
             [("sale_order_id", "in", self.ids)],

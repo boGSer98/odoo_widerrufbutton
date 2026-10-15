@@ -8,6 +8,7 @@ class WiderrufRecord(models.Model):
 
     sale_order_id = fields.Many2one(
         "sale.order",
+        check_company=True,
         string="Verknüpfter Verkaufsauftrag",
         readonly=True,
         tracking=True,
@@ -65,25 +66,13 @@ class WiderrufRecord(models.Model):
     def _find_sale_order(self):
         self.ensure_one()
         reference = self._get_clean_order_reference()
+        Model = self.env["sale.order"].sudo()
         if not reference:
-            return self.env["sale.order"]
-
-        SaleOrder = self.env["sale.order"].sudo()
-        domain_exact = [
-            "|",
-            ("name", "=", reference),
-            ("client_order_ref", "=", reference),
-        ]
-        sale_order = SaleOrder.search(domain_exact, limit=1)
-        if sale_order:
-            return sale_order
-
-        domain_case_insensitive = [
-            "|",
-            ("name", "ilike", reference),
-            ("client_order_ref", "ilike", reference),
-        ]
-        return SaleOrder.search(domain_case_insensitive, limit=1)
+            return Model.browse()
+        domain = [("company_id", "=", self.company_id.id)]
+        domain += ["|", ('name', '=', reference), ('client_order_ref', '=', reference)]
+        matches = Model.search(domain, limit=2)
+        return matches if len(matches) == 1 else Model.browse()
 
     def _try_link_sale_order(self, force=False):
         for record in self:
@@ -98,8 +87,6 @@ class WiderrufRecord(models.Model):
                     "sale_order_id": sale_order.id,
                     "sale_reference_found": True,
                 }
-                if not record.partner_id:
-                    values["partner_id"] = sale_order.partner_id.commercial_partner_id.id
                 record.sudo().write(values)
                 record.message_post(
                     body=_("Der Widerruf wurde mit dem Verkaufsauftrag %s verknüpft.") % sale_order.name
@@ -111,4 +98,5 @@ class WiderrufRecord(models.Model):
                 })
 
     def action_try_link_sale_order(self):
+        self.check_access("write")
         self._try_link_sale_order(force=True)

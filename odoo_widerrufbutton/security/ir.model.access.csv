@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_widerruf_record_user,widerruf.record.user,model_widerruf_record,base.group_user,1,1,1,0
-access_widerruf_record_manager,widerruf.record.manager,model_widerruf_record,sales_team.group_sale_manager,1,1,1,1
+access_widerruf_record_user,widerruf.record.operator,model_widerruf_record,odoo_widerrufbutton.group_widerruf_user,1,1,1,0
+access_widerruf_record_manager,widerruf.record.manager,model_widerruf_record,odoo_widerrufbutton.group_widerruf_manager,1,1,1,1
+access_widerruf_record_admin,widerruf.record.admin,model_widerruf_record,base.group_system,1,1,1,1
+access_widerruf_submission_admin,widerruf.submission.admin,model_widerruf_submission,base.group_system,1,1,1,1
